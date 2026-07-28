@@ -355,6 +355,17 @@ security definer
 set search_path = public, pg_temp
 as $$
 begin
+  -- Nessun utente autenticato significa che la cancellazione arriva dalla
+  -- console o da uno script con la chiave di servizio — tipicamente perché si
+  -- sta eliminando l'utente da Supabase, e la riga qui sparisce in cascata.
+  -- Chi ha le chiavi del database non ha bisogno di essere protetto da sé
+  -- stesso, e senza questa eccezione l'utente diventava incancellabile.
+  -- La guardia resta dov'è utile: dentro l'applicazione, dove `auth.uid()`
+  -- c'è sempre. Per `anon` la policy di cancellazione non passa comunque.
+  if auth.uid() is null then
+    return old;
+  end if;
+
   if old.ruolo = 'titolare'
      and (select count(*) from public.profiles
           where officina_id = old.officina_id and ruolo = 'titolare' and attivo) <= 1 then

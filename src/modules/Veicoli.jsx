@@ -456,12 +456,42 @@ function GrigliaVeicoli({ veicoli, onApri, inScadenza, prossimaScadenza, finestr
  * ------------------------------------------------------------------ */
 
 function FormVeicolo({ veicolo, clienti, onChiudi, onSalva }) {
+  const { profilo, toast, demo } = useApp()
   const [v, setV] = useState(veicolo)
   const [inCorso, setInCorso] = useState(false)
+  const [caricando, setCaricando] = useState(false)
+  const inputFoto = useRef(null)
   const set = (k) => (e) => setV((x) => ({ ...x, [k]: e.target.value }))
   const setNum = (k) => (n) => setV((x) => ({ ...x, [k]: n }))
 
   const valido = v.targa.trim().length >= 5 && v.customerId && v.marca.trim()
+
+  /**
+   * La foto si carica subito, prima ancora che il veicolo esista.
+   *
+   * Il percorso nel bucket porta già data e casuale, quindi non ha bisogno
+   * dell'identificativo del veicolo per essere unico: si può scattare la foto
+   * mentre si compila il modulo, che è l'ordine in cui le cose succedono
+   * davvero in accettazione — prima si guarda la macchina, poi si scrive.
+   */
+  const caricaFoto = async (file) => {
+    if (!file) return
+    setCaricando(true)
+    try {
+      const esito = await storageService.carica(file, {
+        officinaId: profilo?.officinaId || 'demo',
+        cartella: 'veicoli',
+        latoMax: 1400,
+      })
+      setV((x) => ({ ...x, fotoPath: esito.path }))
+      toast('Foto pronta. Verrà salvata con il veicolo.')
+    } catch (e) {
+      toast(e?.message || 'Caricamento non riuscito.', 'errore')
+    } finally {
+      setCaricando(false)
+      if (inputFoto.current) inputFoto.current.value = ''
+    }
+  }
 
   return (
     <Modal
@@ -493,6 +523,44 @@ function FormVeicolo({ veicolo, clienti, onChiudi, onSalva }) {
       }
     >
       <div className="space-y-6">
+        {/* La foto in cima, prima dei dati: in accettazione si guarda la
+            macchina e poi si scrive, non il contrario. */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="relative w-full sm:w-64 shrink-0 aspect-[16/9] rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--surface-2)]">
+            <FotoVeicolo veicolo={v} alt="Foto del veicolo" />
+          </div>
+          <div className="min-w-0 grow flex flex-col justify-center gap-2">
+            <input
+              ref={inputFoto}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              className="hidden"
+              onChange={(e) => caricaFoto(e.target.files?.[0])}
+            />
+            <div className="flex flex-wrap gap-2">
+              <Button
+                icona={Camera}
+                caricamento={caricando}
+                onClick={() => inputFoto.current?.click()}
+              >
+                {v.fotoPath ? 'Sostituisci foto' : 'Scatta o carica foto'}
+              </Button>
+              {v.fotoPath && (
+                <Button variante="fantasma" onClick={() => setV((x) => ({ ...x, fotoPath: null }))}>
+                  Rimuovi
+                </Button>
+              )}
+            </div>
+            <p className="text-xs text-[var(--ink-3)] leading-relaxed">
+              {v.fotoPath
+                ? 'Foto caricata. Viene salvata insieme al veicolo.'
+                : 'Senza foto la scheda mostra una sagoma con il colore che registri qui sotto. Dal telefono il pulsante apre direttamente la fotocamera.'}
+              {demo && ' In demo la foto resta nella memoria del browser.'}
+            </p>
+          </div>
+        </div>
+
         <div className="grid sm:grid-cols-2 gap-3">
           <Campo etichetta="Cliente" obbligatorio>
             {(id) => (
