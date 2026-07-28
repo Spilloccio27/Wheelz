@@ -1,9 +1,9 @@
 /**
- * Interazioni del sito vetrina.
+ * Interazioni del sito vetrina, uguali su tutte le pagine.
  *
- * Quattro cose e basta: l'interruttore del tema, il menu da telefono, la
- * comparsa degli elementi allo scorrimento e i numeri della fascia che
- * salgono. Nessuna dipendenza, nessuna richiesta di rete.
+ * Quattro cose: l'interruttore del tema, il menu da telefono, la comparsa
+ * degli elementi allo scorrimento e l'ingranditore delle schermate.
+ * Nessuna dipendenza, nessuna richiesta di rete.
  */
 ;(function () {
   'use strict'
@@ -19,7 +19,9 @@
   var metaColore = document.querySelector('meta[name="theme-color"]')
 
   function aggiornaColoreBarra() {
-    if (metaColore) metaColore.setAttribute('content', radice.classList.contains('dark') ? '#08080a' : '#ececed')
+    if (metaColore) {
+      metaColore.setAttribute('content', radice.classList.contains('dark') ? '#08080a' : '#ececed')
+    }
   }
 
   aggiornaColoreBarra()
@@ -56,10 +58,6 @@
     nav.addEventListener('click', function (evento) {
       if (evento.target.tagName === 'A') chiudiMenu()
     })
-
-    document.addEventListener('keydown', function (evento) {
-      if (evento.key === 'Escape') chiudiMenu()
-    })
   }
 
   /* ------------------- intestazione: appoggiata o no ------------------- */
@@ -90,13 +88,15 @@
           osservatore.unobserve(voce.target)
         })
       },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
     )
 
     /* Un ritardo progressivo fra fratelli: le griglie compaiono a cascata,
        non tutte insieme come una tenda che si alza. */
     daRivelare.forEach(function (elemento) {
-      var fratelli = elemento.parentElement ? Array.prototype.slice.call(elemento.parentElement.children) : []
+      var fratelli = elemento.parentElement
+        ? Array.prototype.slice.call(elemento.parentElement.children)
+        : []
       var posizione = fratelli.indexOf(elemento)
       if (posizione > 0) elemento.style.transitionDelay = Math.min(posizione, 8) * 55 + 'ms'
       osservatore.observe(elemento)
@@ -144,28 +144,50 @@
     })
   }
 
-  /* --------------------- voce di menu corrispondente ------------------- */
+  /* ------------------------- ingranditore ------------------------------ *
+   * Le schermate sono larghe 1440 px: dentro la pagina stanno in mezza
+   * colonna e i numeri non si leggono. Un clic le apre a piena finestra.
+   * Senza <dialog> non succede niente e l'immagine resta quella inline.
+   * -------------------------------------------------------------------- */
 
-  var sezioni = Array.prototype.slice.call(
-    document.querySelectorAll('main section[id]')
+  var schermate = Array.prototype.slice.call(
+    document.querySelectorAll('.cornice img, .telefono img')
   )
-  var voci = Array.prototype.slice.call(document.querySelectorAll('.testata__nav a'))
 
-  if ('IntersectionObserver' in window && sezioni.length && voci.length) {
-    var corrente = new IntersectionObserver(
-      function (righe) {
-        righe.forEach(function (riga) {
-          if (!riga.isIntersecting) return
-          var id = riga.target.id
-          voci.forEach(function (voce) {
-            voce.classList.toggle('corrente', voce.getAttribute('href') === '#' + id)
-          })
-        })
-      },
-      { rootMargin: '-45% 0px -50% 0px' }
-    )
-    sezioni.forEach(function (sezione) {
-      corrente.observe(sezione)
+  if (schermate.length && typeof HTMLDialogElement === 'function') {
+    var lente = document.createElement('dialog')
+    lente.className = 'lente'
+    var grande = document.createElement('img')
+    var didascalia = document.createElement('p')
+    lente.appendChild(grande)
+    lente.appendChild(didascalia)
+    document.body.appendChild(lente)
+
+    schermate.forEach(function (immagine) {
+      immagine.setAttribute('role', 'button')
+      immagine.setAttribute('tabindex', '0')
+      immagine.title = 'Clic per ingrandire'
+
+      function apri() {
+        grande.src = immagine.currentSrc || immagine.src
+        grande.alt = immagine.alt
+        var figura = immagine.closest('figure')
+        var testo = figura ? figura.querySelector('figcaption') : null
+        didascalia.textContent = testo ? testo.textContent : immagine.alt
+        lente.showModal()
+      }
+
+      immagine.addEventListener('click', apri)
+      immagine.addEventListener('keydown', function (evento) {
+        if (evento.key === 'Enter' || evento.key === ' ') {
+          evento.preventDefault()
+          apri()
+        }
+      })
+    })
+
+    lente.addEventListener('click', function () {
+      lente.close()
     })
   }
 })()

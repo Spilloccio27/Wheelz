@@ -4,51 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#08080a" />
-    <title>MechFlow — Il gestionale dell'officina</title>
-    <meta
-      name="description"
-      content="MechFlow è il gestionale web per autofficine: clienti e parco veicoli, preventivi, schede di lavoro, magazzino ricambi, fatturazione, personale e report. Dal preventivo alla fattura senza riscrivere niente."
-    />
+    <title>MechFlow — Il gestionale dell’officina</title>
+    <meta name="description" content="MechFlow è il gestionale web per autofficine: clienti e parco veicoli, preventivi, schede di lavoro, magazzino ricambi, fatturazione, personale e report. Dal preventivo alla fattura senza riscrivere niente." />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/style.css" />
     <!-- Bloccante di proposito: applica il tema salvato prima del primo
          disegno, altrimenti il fondo lampeggia. Sono venti righe. -->
     <script src="assets/tema.js"></script>
-
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="MechFlow — Il gestionale dell'officina" />
-    <meta
-      property="og:description"
-      content="Clienti, veicoli, preventivi, schede di lavoro, ricambi, fatture, personale e report. Dal preventivo alla fattura senza riscrivere niente."
-    />
+    <meta property="og:title" content="MechFlow — Il gestionale dell’officina" />
+    <meta property="og:description" content="MechFlow è il gestionale web per autofficine: clienti e parco veicoli, preventivi, schede di lavoro, magazzino ricambi, fatturazione, personale e report. Dal preventivo alla fattura senza riscrivere niente." />
     <meta property="og:locale" content="it_IT" />
-    <meta name="twitter:card" content="summary_large_image" />
   </head>
 
   <body>
     <a class="salta" href="#contenuto">Salta al contenuto</a>
 
-    <!-- ================================ intestazione ================================ -->
     <header class="testata" id="testata">
       <div class="contenitore testata__riga">
-        <a class="marchio" href="#" aria-label="MechFlow, torna in cima">
+        <a class="marchio" href="index.html" aria-label="MechFlow, vai alla pagina iniziale">
           <svg class="marchio__segno" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" rx="7" />
-            <path
-              d="M11.8 8.4a5.6 5.6 0 0 0 7 7.3l5.4 5.4a2 2 0 0 1-2.8 2.8l-5.4-5.4a5.6 5.6 0 0 1-7.3-7l3 3 2.5-.6.6-2.5-3-3Z"
-              class="marchio__chiave"
-            />
-          </svg>
+  <rect width="32" height="32" rx="7" />
+  <path d="M11.8 8.4a5.6 5.6 0 0 0 7 7.3l5.4 5.4a2 2 0 0 1-2.8 2.8l-5.4-5.4a5.6 5.6 0 0 1-7.3-7l3 3 2.5-.6.6-2.5-3-3Z" class="marchio__chiave" />
+</svg>
           <span class="marchio__nome">MechFlow</span>
         </a>
 
         <nav class="testata__nav" id="nav" aria-label="Navigazione principale">
-          <a href="#moduli">Moduli</a>
-          <a href="#flusso">Il flusso</a>
-          <a href="#numeri">I numeri</a>
-          <a href="#ruoli">Ruoli</a>
-          <a href="#officina">In officina</a>
-          <a href="#domande">Domande</a>
+          <a href="moduli.html">Moduli</a>
+          <a href="flusso.html">Il flusso</a>
+          <a href="numeri.html">I numeri</a>
+          <a href="officina.html">In officina</a>
+          <a href="sicurezza.html">Sicurezza</a>
+          <a href="demo.html">Provalo</a>
+          <a href="domande.html">Domande</a>
         </nav>
 
         <div class="testata__azioni">
@@ -58,20 +47,11 @@
             </svg>
             <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="4" />
-              <path
-                d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
-              />
+              <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
             </svg>
           </button>
-          <a class="btn btn--fantasma solo-desktop" href="#demo">Guarda la demo</a>
-          <button
-            class="icona-btn solo-mobile"
-            id="menu"
-            type="button"
-            aria-label="Apri il menu"
-            aria-expanded="false"
-            aria-controls="nav"
-          >
+          <a class="btn btn--fantasma solo-desktop" href="demo.html">Provalo</a>
+          <button class="icona-btn solo-mobile" id="menu" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           </button>
         </div>
@@ -79,15 +59,11 @@
     </header>
 
     <main id="contenuto">
-      <!-- ================================== apertura ================================== -->
       <section class="apertura">
         <div class="contenitore apertura__griglia">
           <div class="apertura__testo">
             <p class="occhiello rivela">Per officine che stanno in un capannone</p>
-            <h1 class="rivela">
-              Il gestionale dell'officina,<br />
-              <span class="tenue">dal preventivo alla fattura.</span>
-            </h1>
+            <h1 class="rivela">Il gestionale dell’officina,<br /><span class="tenue">dal preventivo alla fattura.</span></h1>
             <p class="sommario rivela">
               Clienti e parco veicoli, preventivi, schede di lavoro, ricambi a magazzino,
               fornitori, fatture e incassi, spese, personale con ore e presenze, report
@@ -95,8 +71,8 @@
               MechFlow è pensato per quello.
             </p>
             <div class="apertura__azioni rivela">
-              <a class="btn btn--pieno" href="#demo">Provala con i dati demo</a>
-              <a class="btn btn--fantasma" href="#moduli">Che cosa copre</a>
+              <a class="btn btn--pieno" href="demo.html">Provalo con i dati demo</a>
+              <a class="btn btn--fantasma" href="moduli.html">Guarda i moduli</a>
             </div>
             <ul class="apertura__note rivela">
               <li><span aria-hidden="true">✓</span> Meccanica, elettrauto, gommista, carrozzeria leggera</li>
@@ -104,125 +80,38 @@
               <li><span aria-hidden="true">✓</span> I dati restano tuoi: nessun servizio esterno obbligatorio</li>
             </ul>
           </div>
-
-          <!-- Mockup dell'applicazione, costruito in CSS: niente immagini da caricare. -->
-          <div class="apertura__mostra rivela" aria-hidden="true">
-            <div class="telaio">
-              <div class="telaio__barra">
-                <span class="pallino"></span><span class="pallino"></span><span class="pallino"></span>
-                <span class="telaio__url">mechflow · Dashboard</span>
-              </div>
-              <div class="telaio__corpo">
-                <aside class="finta-laterale">
-                  <span class="finta-voce finta-voce--attiva"></span>
-                  <span class="finta-voce"></span>
-                  <span class="finta-voce"></span>
-                  <span class="finta-voce"></span>
-                  <span class="finta-voce"></span>
-                  <span class="finta-voce"></span>
-                  <span class="finta-voce"></span>
-                </aside>
-                <div class="finta-pagina">
-                  <div class="kpi-fila">
-                    <div class="kpi">
-                      <span class="kpi__eti">Fatturato</span>
-                      <strong class="kpi__val">38.420 €</strong>
-                      <span class="kpi__var kpi__var--su">+ 12,4%</span>
-                    </div>
-                    <div class="kpi">
-                      <span class="kpi__eti">Produttività</span>
-                      <strong class="kpi__val">52%</strong>
-                      <span class="kpi__det">ore vendute / presenza</span>
-                    </div>
-                    <div class="kpi">
-                      <span class="kpi__eti">Incidenza ricambi</span>
-                      <strong class="kpi__val">31,2%</strong>
-                      <span class="kpi__var kpi__var--giu">− 1,8%</span>
-                    </div>
-                    <div class="kpi">
-                      <span class="kpi__eti">Schede aperte</span>
-                      <strong class="kpi__val">14</strong>
-                      <span class="kpi__det">37 chiuse nel mese</span>
-                    </div>
-                  </div>
-
-                  <div class="finta-card">
-                    <div class="finta-card__testa">
-                      <span class="finta-titolo">Fatturato per giorno</span>
-                      <span class="finta-sottotitolo">Manodopera e ricambi, netto IVA</span>
-                    </div>
-                    <div class="istogramma">
-                      <span style="--h: 38%"></span><span style="--h: 62%"></span>
-                      <span style="--h: 45%"></span><span style="--h: 78%"></span>
-                      <span style="--h: 55%"></span><span style="--h: 91%"></span>
-                      <span style="--h: 30%"></span><span style="--h: 67%"></span>
-                      <span style="--h: 84%"></span><span style="--h: 49%"></span>
-                      <span style="--h: 72%"></span><span style="--h: 58%"></span>
-                    </div>
-                  </div>
-
-                  <div class="finta-card">
-                    <div class="finta-card__testa">
-                      <span class="finta-titolo">Schede aperte</span>
-                    </div>
-                    <table class="finta-tabella">
-                      <tbody>
-                        <tr>
-                          <td>SL-0241</td>
-                          <td>Golf VII · FT 481 KP</td>
-                          <td><span class="stato stato--lavora">In lavorazione</span></td>
-                        </tr>
-                        <tr>
-                          <td>SL-0240</td>
-                          <td>Panda III · GA 902 XM</td>
-                          <td><span class="stato stato--attesa">Attesa ricambio</span></td>
-                        </tr>
-                        <tr>
-                          <td>SL-0238</td>
-                          <td>Focus · EK 117 RB</td>
-                          <td><span class="stato stato--pronto">Pronto</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div>
+            <figure class="cornice rivela">
+  <div class="cornice__barra" aria-hidden="true">
+    <span class="pallino"></span><span class="pallino"></span><span class="pallino"></span>
+    <span class="cornice__url">mechflow · Dashboard</span>
+  </div>
+  <img src="immagini/dashboard.webp" srcset="immagini/dashboard@720.webp 720w, immagini/dashboard.webp 1440w"
+       sizes="(max-width: 1100px) 100vw, 52vw" width="1440" height="900" fetchpriority="high" decoding="async"
+       alt="La dashboard di MechFlow: fatturato, ore vendute, produttività, incidenza ricambi, margine medio e schede aperte, con il grafico del fatturato per giorno e il mix degli interventi." />
+  <figcaption>La dashboard del titolare: sei indicatori, il fatturato giorno per giorno e il mix degli interventi del mese.</figcaption>
+</figure>
           </div>
         </div>
       </section>
 
-      <!-- ================================ fascia numeri ================================ -->
       <section class="fascia">
         <div class="contenitore fascia__griglia">
-          <div class="fascia__voce rivela">
-            <strong data-conta="12">12</strong>
-            <span>moduli, uno per dominio</span>
-          </div>
-          <div class="fascia__voce rivela">
-            <strong data-conta="47">47</strong>
-            <span>test sulle formule che contano</span>
-          </div>
-          <div class="fascia__voce rivela">
-            <strong data-conta="3">3</strong>
-            <span>mesi di storico nella demo</span>
-          </div>
-          <div class="fascia__voce rivela">
-            <strong data-conta="0">0</strong>
-            <span>richieste a CDN esterni</span>
-          </div>
+          <div class="fascia__voce rivela"><strong data-conta="12">12</strong><span>moduli, uno per dominio</span></div>
+          <div class="fascia__voce rivela"><strong data-conta="47">47</strong><span>test sulle formule che contano</span></div>
+          <div class="fascia__voce rivela"><strong data-conta="3">3</strong><span>mesi di storico nella demo</span></div>
+          <div class="fascia__voce rivela"><strong data-conta="0">0</strong><span>richieste a CDN esterni</span></div>
         </div>
       </section>
 
-      <!-- ================================== il problema ================================== -->
-      <section class="sezione" id="perche">
+      <section class="sezione">
         <div class="contenitore stretto">
           <p class="occhiello rivela">Perché</p>
           <h2 class="rivela">Il preventivo sul blocchetto, le ore su un foglio, i ricambi a memoria.</h2>
           <p class="testo rivela">
-            In officina il dato esiste già: qualcuno l'ha scritto da qualche parte. Il problema è
+            In officina il dato esiste già: qualcuno l’ha scritto da qualche parte. Il problema è
             che va riscritto tre volte — una per il preventivo, una per la scheda, una per la
-            fattura — e ogni riscrittura è un'occasione per sbagliare un totale, dimenticare un
+            fattura — e ogni riscrittura è un’occasione per sbagliare un totale, dimenticare un
             ricambio o non sapere più quanto è costata davvero quella riparazione.
           </p>
           <p class="testo rivela">
@@ -234,660 +123,93 @@
         </div>
       </section>
 
-      <!-- ==================================== moduli ==================================== -->
-      <section class="sezione" id="moduli">
+      <section class="sezione sezione--alt">
         <div class="contenitore">
           <header class="intestazione-sezione">
-            <p class="occhiello rivela">Moduli</p>
-            <h2 class="rivela">Dodici moduli, nessuno di troppo</h2>
-            <p class="testo rivela">
-              Ognuno è un dominio dell'officina, non una voce di menu messa lì per far numero.
-            </p>
+            <p class="occhiello rivela">Un giro veloce</p>
+            <h2 class="rivela">Tre schermate, poi decidi se vale il tuo tempo</h2>
           </header>
-
-          <div class="griglia-moduli">
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="3" width="7" height="9" rx="1.5" />
-                <rect x="14" y="3" width="7" height="5" rx="1.5" />
-                <rect x="14" y="12" width="7" height="9" rx="1.5" />
-                <rect x="3" y="16" width="7" height="5" rx="1.5" />
-              </svg>
-              <h3>Dashboard</h3>
-              <p>
-                Fatturato, ore vendute, produttività, incidenza ricambi, margine medio, schede
-                aperte. Più gli avvisi: insoluti, scorte sotto minimo, revisioni in scadenza.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="9" cy="8" r="3.4" />
-                <path d="M2.6 20a6.4 6.4 0 0 1 12.8 0" />
-                <path d="M17 8.6a3 3 0 0 1 0 5.2M19.4 20a5.6 5.6 0 0 0-2.2-4.4" />
-              </svg>
-              <h3>Clienti</h3>
-              <p>
-                Privati e aziende, contatti e dati fiscali (P.IVA, SDI, PEC), con lo storico dei
-                passaggi e i veicoli collegati.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 16v-3.2L5.8 7.4A2 2 0 0 1 7.7 6h8.6a2 2 0 0 1 1.9 1.4L20 12.8V16" />
-                <path d="M4 16h16v2.4a1 1 0 0 1-1 1h-1.6a1 1 0 0 1-1-1V16m-9.8 0v2.4a1 1 0 0 1-1 1H4.9a1 1 0 0 1-1-1V16" />
-                <path d="M7 13h1.5M15.5 13H17" />
-              </svg>
-              <h3>Veicoli</h3>
-              <p>
-                Targa, VIN, marca e modello, chilometri, alimentazione e scadenze — revisione,
-                bollo, tagliando — con la storia degli interventi.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 3h8l4 4v14H6z" />
-                <path d="M14 3v4h4" />
-                <path d="M9 12h6M9 16h4" />
-              </svg>
-              <h3>Preventivi</h3>
-              <p>
-                Righe di manodopera (ore × tariffa) e ricambi (quantità × prezzo), sconti di riga,
-                validità, stato. Accettato, diventa una scheda di lavoro con un clic.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="5" y="4" width="14" height="17" rx="2" />
-                <path d="M9 3h6v3H9z" />
-                <path d="M9 11l1.6 1.6L14.5 9" />
-                <path d="M9 16h6" />
-              </svg>
-              <h3>Schede di lavoro</h3>
-              <p>
-                Difetto lamentato, diagnosi, ponte, stato, date, garanzia. Ore e ricambi si
-                registrano mentre si lavora, non la sera dopo.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 4 7v10l8 4 8-4V7z" />
-                <path d="M4 7l8 4 8-4M12 11v10" />
-              </svg>
-              <h3>Magazzino</h3>
-              <p>
-                Codice OE, giacenza, scorta minima, prezzo medio ponderato, listino. Carichi,
-                scarichi, resi e rettifiche: la giacenza è sempre la somma dei movimenti.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="2.5" y="6" width="11" height="10" rx="1.5" />
-                <path d="M13.5 9.5H18l3.5 3.2V16h-8z" />
-                <circle cx="7" cy="18" r="1.9" />
-                <circle cx="17" cy="18" r="1.9" />
-              </svg>
-              <h3>Fornitori</h3>
-              <p>
-                Ricambisti e terzisti con condizioni, sconti e tempi di consegna. Gli ordini,
-                alla ricezione, caricano il magazzino e generano la spesa.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 3h14v18l-2.3-1.6-2.3 1.6-2.4-1.6L9.6 21l-2.3-1.6L5 21z" />
-                <path d="M9 8h6M9 12h6" />
-              </svg>
-              <h3>Fatturazione</h3>
-              <p>
-                Numerazione progressiva calcolata dai documenti, IVA per aliquota, scadenze e
-                incassi. Le fatture non si cancellano: si annullano, e il numero resta occupato.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="2.5" y="5.5" width="19" height="13" rx="2.5" />
-                <path d="M2.5 10h19" />
-                <path d="M6 14.5h4" />
-              </svg>
-              <h3>Spese</h3>
-              <p>
-                Categoria, fisso o variabile, imponibile e IVA, stato e scadenza. Le ricorrenti
-                sono modelli: generano la spesa vera una volta al mese, mai due.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 15a8 8 0 0 1 16 0" />
-                <path d="M2.5 15h19" />
-                <path d="M12 7V4M8.6 7.7 7 5.2M15.4 7.7 17 5.2" />
-                <path d="M5 19h14" />
-              </svg>
-              <h3>Personale</h3>
-              <p>
-                Contratto, paga oraria, specializzazione e certificazioni. Turni pianificati,
-                presenze, straordinari, ferie e permessi — e il costo orario reale.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
-              </svg>
-              <h3>Report</h3>
-              <p>
-                Marginalità nel tempo, matrice degli interventi per frequenza e margine,
-                break-even, occupazione dei ponti, produttività per meccanico.
-              </p>
-            </article>
-
-            <article class="scheda rivela">
-              <svg class="scheda__ico" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="3.2" />
-                <path
-                  d="M19.4 14a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-2.8-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3.5 13H3.3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.1-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 10 3.5v-.2a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.3a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.3.9Z"
-                />
-              </svg>
-              <h3>Impostazioni</h3>
-              <p>
-                Dati dell'officina, tariffe orarie per tipo di lavorazione, ricarichi, aliquote,
-                obiettivi, percentuale di oneri, numero di ponti, utenti e inviti.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================== flusso ==================================== -->
-      <section class="sezione sezione--alt" id="flusso">
-        <div class="contenitore">
-          <header class="intestazione-sezione">
-            <p class="occhiello rivela">Il flusso</p>
-            <h2 class="rivela">Il dato si scrive una volta sola</h2>
-            <p class="testo rivela">
-              Quattro passaggi, e ognuno eredita dal precedente. Nessun copia-incolla fra
-              documenti, nessun totale ricalcolato a mano.
-            </p>
-          </header>
-
-          <ol class="passi">
-            <li class="passo rivela">
-              <span class="passo__n">01</span>
-              <h3>Accettazione</h3>
-              <p>
-                Cliente e veicolo, difetto lamentato, chilometri. Se il veicolo è già passato,
-                c'è già tutto: targa, storico, scadenze.
-              </p>
-            </li>
-            <li class="passo rivela">
-              <span class="passo__n">02</span>
-              <h3>Preventivo</h3>
-              <p>
-                Manodopera a ore per la tariffa della lavorazione, ricambi a listino con il
-                ricarico impostato. Il cliente accetta, il preventivo diventa commessa.
-              </p>
-            </li>
-            <li class="passo rivela">
-              <span class="passo__n">03</span>
-              <h3>Scheda di lavoro</h3>
-              <p>
-                Il meccanico avanza lo stato, registra le ore e i ricambi impiegati: il
-                magazzino si scarica, la presenza copre le ore, il ponte risulta occupato.
-              </p>
-            </li>
-            <li class="passo rivela">
-              <span class="passo__n">04</span>
-              <h3>Consegna e fattura</h3>
-              <p>
-                La scheda chiusa genera la fattura con le stesse righe e l'IVA per aliquota.
-                L'incasso chiude il cerchio; l'insoluto finisce fra gli avvisi.
-              </p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <!-- ==================================== numeri ==================================== -->
-      <section class="sezione" id="numeri">
-        <div class="contenitore">
-          <header class="intestazione-sezione">
-            <p class="occhiello rivela">I numeri</p>
-            <h2 class="rivela">Le formule che dicono se l'officina guadagna</h2>
-            <p class="testo rivela">
-              Sono funzioni pure, tutte nello stesso file, coperte da test. È il punto in cui un
-              errore silenzioso costa di più.
-            </p>
-          </header>
-
-          <div class="tabella-avvolge rivela">
-            <table class="tabella">
-              <thead>
-                <tr>
-                  <th scope="col">Indicatore</th>
-                  <th scope="col">Come si calcola</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Produttività</td>
-                  <td>ore vendute su scheda / ore di presenza di chi può vendere ore</td>
-                </tr>
-                <tr>
-                  <td>Costo orario meccanico</td>
-                  <td>paga oraria × (1 + oneri %), straordinari maggiorati del 15% prima degli oneri</td>
-                </tr>
-                <tr>
-                  <td>Margine ricambio</td>
-                  <td>(prezzo di vendita − prezzo medio ponderato) / prezzo di vendita</td>
-                </tr>
-                <tr>
-                  <td>Prezzo medio ponderato</td>
-                  <td>a ogni carico: (giacenza × medio + qtà × prezzo) / (giacenza + qtà)</td>
-                </tr>
-                <tr>
-                  <td>Incidenza ricambi</td>
-                  <td>costo dei ricambi impiegati / fatturato del periodo</td>
-                </tr>
-                <tr>
-                  <td>Occupazione ponti</td>
-                  <td>ore lavorate / (ponti × ore di apertura × giorni)</td>
-                </tr>
-                <tr>
-                  <td>Break-even</td>
-                  <td>costi fissi mensili, personale incluso / margine di contribuzione</td>
-                </tr>
-                <tr>
-                  <td>Matrice interventi</td>
-                  <td>frequenza (rispetto alla mediana) × margine (rispetto alla media)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="note-numeri">
-            <article class="nota rivela">
-              <h3>Chi sta al denominatore</h3>
-              <p>
-                Accettazione e amministrazione hanno le ore nel costo del lavoro — dove è giusto
-                che siano — ma fuori dalla produttività: quelle ore non sono mai state
-                fatturabili. Metterle darebbe un numero sempre basso e senza significato.
-              </p>
-            </article>
-            <article class="nota rivela">
-              <h3>Mediana, non media</h3>
-              <p>
-                Nella matrice degli interventi la soglia sulla frequenza è la mediana: due o tre
-                tagliandi in più non devono spostare l'asticella per tutti gli altri. Sulla
-                marginalità la media va bene, perché lì gli estremi contano davvero.
-              </p>
-            </article>
-            <article class="nota rivela">
-              <h3>Quattro decimali sul medio</h3>
-              <p>
-                Il prezzo medio ponderato è tenuto a quattro decimali: sulla minuteria da 0,15 €
-                due decimali si mangiano il margine nell'arrotondamento. E con giacenza a zero fa
-                testo il prezzo del carico, non una media su una giacenza che non esiste.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===================================== ruoli ===================================== -->
-      <section class="sezione sezione--alt" id="ruoli">
-        <div class="contenitore">
-          <header class="intestazione-sezione">
-            <p class="occhiello rivela">Ruoli e permessi</p>
-            <h2 class="rivela">Chi vede cosa, deciso nel database</h2>
-            <p class="testo rivela">
-              Quello che compare nel menu è cortesia verso l'utente. Il controllo vero sono le
-              policy del database, che valgono anche per una chiamata fatta a mano con il token in
-              mano.
-            </p>
-          </header>
-
-          <div class="griglia-ruoli">
-            <article class="ruolo rivela">
-              <h3>Titolare</h3>
-              <p class="ruolo__riassunto">Tutto.</p>
-              <ul>
-                <li>Fatturato, marginalità, costi e report</li>
-                <li>Spese, impostazioni, tariffe e obiettivi</li>
-                <li>Utenti, inviti e ruoli</li>
-              </ul>
-            </article>
-            <article class="ruolo rivela">
-              <h3>Capofficina</h3>
-              <p class="ruolo__riassunto">Tutto il lavoro, niente conti.</p>
-              <ul>
-                <li>Clienti, veicoli, preventivi, schede</li>
-                <li>Magazzino, fornitori, personale</li>
-                <li class="ruolo__no">Niente spese, report o impostazioni</li>
-              </ul>
-            </article>
-            <article class="ruolo rivela">
-              <h3>Meccanico</h3>
-              <p class="ruolo__riassunto">Le sue schede, le sue ore.</p>
-              <ul>
-                <li>Avanzamento, ore e ricambi sulle proprie schede</li>
-                <li>I propri turni e le proprie presenze</li>
-                <li class="ruolo__no">Nessun dato economico, dei colleghi solo nome e reparto</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="riquadro rivela">
-            <h3>Cinque regole non negoziabili</h3>
-            <ol class="riquadro__lista">
-              <li>Il ruolo non è modificabile dall'utente: solo il titolare della stessa officina può cambiarlo.</li>
-              <li>I profili non si creano dal client: restano due sole strade controllate, fondare l'officina o riscattare un invito.</li>
-              <li>Un invito vale una volta sola, anche se il codice finisce in una chat di gruppo — ed è nominale.</li>
-              <li>Senza profilo attivo non esce nessuna riga: nessuna condizione è mai soddisfatta.</li>
-              <li>L'ultimo titolare non può essere rimosso, né cambiandogli ruolo, né disattivandolo, né cancellandolo.</li>
-            </ol>
-            <p class="riquadro__coda">
-              Una scelta dichiarata: il capofficina può <em>emettere</em> una fattura chiudendo una
-              scheda, ma la rilegge solo per sette giorni. Quanto basta per lavorare, non
-              abbastanza per ricostruire il fatturato di un periodo.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- =================================== in officina =================================== -->
-      <section class="sezione" id="officina">
-        <div class="contenitore officina__griglia">
-          <div class="officina__testo">
-            <p class="occhiello rivela">In officina</p>
-            <h2 class="rivela">Una mano tiene il tablet, l'altra la chiave</h2>
-            <p class="testo rivela">
-              Sotto i 1024 px la barra laterale sparisce e compare una navigazione in basso, dove
-              arriva il pollice. Quattro voci — Oggi, Schede, Clienti, Ricambi — più
-              <em>Altro</em>, che apre un foglio con i moduli restanti, il tema e il cambio
-              utente.
-            </p>
-            <p class="testo rivela">
-              Le tabelle da dieci colonne diventano card impilate: identificativo in grande, il
-              dato che serve in alto a destra, il resto in coppie etichetta e valore. Perché una
-              tabella larga su uno schermo da 375 px è una tabella che si legge trascinando.
-            </p>
-            <ul class="elenco-segni rivela">
-              <li>Interfaccia monocromatica: il colore compare solo dove porta informazione</li>
-              <li>Il segno di un importo ha sempre il <code>+</code> o il <code>−</code> accanto</li>
-              <li>Stati che chiedono un intervento: insoluti, sotto scorta, revisione scaduta</li>
-              <li>Tema chiaro e scuro, con il contrasto verificato sulle tinte semantiche</li>
-            </ul>
-          </div>
-
-          <div class="officina__mostra rivela" aria-hidden="true">
-            <div class="telefono">
-              <div class="telefono__schermo">
-                <div class="telefono__testa">
-                  <span class="finta-titolo">Schede</span>
-                  <span class="finta-sottotitolo">14 aperte</span>
-                </div>
-                <div class="card-mobile">
-                  <div class="card-mobile__testa">
-                    <strong>SL-0241</strong>
-                    <span class="stato stato--lavora">In lavorazione</span>
-                  </div>
-                  <div class="card-mobile__coppie">
-                    <span>Veicolo</span><b>Golf VII</b>
-                    <span>Targa</span><b>FT 481 KP</b>
-                    <span>Ponte</span><b>2</b>
-                  </div>
-                </div>
-                <div class="card-mobile">
-                  <div class="card-mobile__testa">
-                    <strong>SL-0240</strong>
-                    <span class="stato stato--attesa">Attesa ricambio</span>
-                  </div>
-                  <div class="card-mobile__coppie">
-                    <span>Veicolo</span><b>Panda III</b>
-                    <span>Targa</span><b>GA 902 XM</b>
-                    <span>Ferma da</span><b>2 giorni</b>
-                  </div>
-                </div>
-                <div class="card-mobile">
-                  <div class="card-mobile__testa">
-                    <strong>SL-0238</strong>
-                    <span class="stato stato--pronto">Pronto</span>
-                  </div>
-                  <div class="card-mobile__coppie">
-                    <span>Veicolo</span><b>Focus</b>
-                    <span>Targa</span><b>EK 117 RB</b>
-                    <span>Totale</span><b>412,60 €</b>
-                  </div>
-                </div>
-                <nav class="barra-liquida">
-                  <span class="barra-liquida__voce barra-liquida__voce--attiva">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="1.5" /></svg>
-                    Oggi
-                  </span>
-                  <span class="barra-liquida__voce">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 3h6v3H9z" /></svg>
-                    Schede
-                  </span>
-                  <span class="barra-liquida__voce">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4" /><path d="M5.6 20a6.4 6.4 0 0 1 12.8 0" /></svg>
-                    Clienti
-                  </span>
-                  <span class="barra-liquida__voce">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v10l8 4 8-4V7z" /><path d="M4 7l8 4 8-4" /></svg>
-                    Ricambi
-                  </span>
-                </nav>
+          <div class="griglia-schede">
+            <a class="scheda scheda--anteprima rivela" href="flusso.html">
+              <img src="immagini/schede-aperte@720.webp" width="720" height="450" loading="lazy" decoding="async"
+                   alt="L’elenco delle schede di lavoro aperte, con stato, ponte e valore." />
+              <div>
+                <h3>Le schede aperte</h3>
+                <p>Chi è sul ponte, chi aspetta un ricambio, chi è pronto per la consegna.</p>
+                <span class="freccia">Vedi il flusso →</span>
               </div>
-            </div>
+            </a>
+            <a class="scheda scheda--anteprima rivela" href="moduli.html">
+              <img src="immagini/magazzino@720.webp" width="720" height="450" loading="lazy" decoding="async"
+                   alt="Il magazzino ricambi con giacenze, scorte minime e prezzo medio ponderato." />
+              <div>
+                <h3>Il magazzino</h3>
+                <p>Giacenze, sotto scorta, prezzo medio ponderato e margine per ogni ricambio.</p>
+                <span class="freccia">Vedi i moduli →</span>
+              </div>
+            </a>
+            <a class="scheda scheda--anteprima rivela" href="numeri.html">
+              <img src="immagini/report@720.webp" width="720" height="450" loading="lazy" decoding="async"
+                   alt="Il conto economico del periodo, dai ricavi al risultato." />
+              <div>
+                <h3>Il conto economico</h3>
+                <p>Dai ricavi al risultato, con il costo del lavoro e il break-even.</p>
+                <span class="freccia">Vedi i numeri →</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- ===================================== demo ===================================== -->
-      <section class="sezione sezione--alt" id="demo">
-        <div class="contenitore">
-          <header class="intestazione-sezione">
-            <p class="occhiello rivela">Modalità demo</p>
-            <h2 class="rivela">Tre mesi di officina, simulati giorno per giorno</h2>
-            <p class="testo rivela">
-              Senza configurare niente, MechFlow parte con un'officina di esempio —
-              <em>Autofficina Rossi &amp; Figli</em>, cinque addetti, tre ponti. I dati non sono
-              righe a caso: sono il risultato di una simulazione.
-            </p>
-          </header>
-
-          <div class="griglia-demo">
-            <div class="dato rivela"><strong>256</strong><span>clienti</span></div>
-            <div class="dato rivela"><strong>360</strong><span>veicoli</span></div>
-            <div class="dato rivela"><strong>509</strong><span>schede di lavoro</span></div>
-            <div class="dato rivela"><strong>1.380</strong><span>movimenti di magazzino</span></div>
-            <div class="dato rivela"><strong>469</strong><span>fatture</span></div>
-            <div class="dato rivela"><strong>387</strong><span>presenze</span></div>
-          </div>
-
-          <div class="riquadro rivela">
-            <h3>Cinque invarianti che i dati non violano mai</h3>
-            <ol class="riquadro__lista">
-              <li>Ogni ora di manodopera esiste anche come ora di presenza dello stesso meccanico nello stesso giorno, e non la supera.</li>
-              <li>Ogni ricambio impiegato ha il suo movimento di scarico, e ogni giacenza è la somma dei movimenti.</li>
-              <li>Ogni fattura nasce da una scheda consegnata e ne riporta le righe.</li>
-              <li>Il prezzo medio ponderato è il risultato dei carichi, non un numero inventato.</li>
-              <li>La domenica l'officina è chiusa: niente presenze, niente lavorazioni.</li>
-            </ol>
-            <p class="riquadro__coda">
-              In demo tutto resta nella memoria del browser: nessuna chiamata di rete, niente
-              lascia la macchina. In fondo alla barra laterale c'è
-              <em>«Guarda l'officina come»</em>: la stessa applicazione con gli occhi del
-              titolare, del capofficina o di un meccanico.
-            </p>
-          </div>
-
-          <div class="avvio rivela">
-            <h3>Avvio in trenta secondi</h3>
-            <pre class="codice"><code>git clone &lt;repository&gt;
-cd MechFlow
-npm install
-npm run dev</code></pre>
-            <p class="avvio__nota">
-              Si apre su <code>http://localhost:5173</code> in modalità demo. Con le chiavi
-              Supabase in <code>.env</code> parte invece da un gestionale vuoto e ogni modifica è
-              persistente: i dati demo non finiscono mai in un database reale se non li si chiede.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================== tecnica ==================================== -->
-      <section class="sezione" id="tecnica">
-        <div class="contenitore">
-          <header class="intestazione-sezione">
-            <p class="occhiello rivela">Sotto il cofano</p>
-            <h2 class="rivela">Poche dipendenze, scelte dichiarate</h2>
-          </header>
-
-          <div class="griglia-tecnica">
-            <article class="scheda rivela">
-              <h3>React 18 e Vite 5</h3>
-              <p>Solo componenti funzionali e hook. Nessun router esterno: i moduli sono dodici e vivono nella stessa pagina.</p>
-            </article>
-            <article class="scheda rivela">
-              <h3>Tailwind CSS 4</h3>
-              <p>Palette monocromatica, tema scuro predefinito con interruttore. Superfici di vetro con ricaduta opaca dove il <code>backdrop-filter</code> non c'è.</p>
-            </article>
-            <article class="scheda rivela">
-              <h3>Supabase, se serve</h3>
-              <p>PostgreSQL, autenticazione e archivio file. Senza chiavi l'applicazione gira in demo, in memoria, senza rete.</p>
-            </article>
-            <article class="scheda rivela">
-              <h3>Un solo livello dati</h3>
-              <p>Un file solo parla con lo storage. Lo stato globale è un <code>useSyncExternalStore</code>, i form sono <code>useState</code>, le date sono stringhe ISO.</p>
-            </article>
-            <article class="scheda rivela">
-              <h3>Font serviti dal progetto</h3>
-              <p>Inter arriva dal dominio dell'applicazione, non da un CDN. Se manca, si ricade sul font di sistema senza rompere niente.</p>
-            </article>
-            <article class="scheda rivela">
-              <h3>CSP stretta in produzione</h3>
-              <p><code>default-src 'self'</code>, l'unica origine esterna ammessa è il progetto Supabase. Niente iframe, niente <code>object-src</code>.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==================================== domande ==================================== -->
-      <section class="sezione sezione--alt" id="domande">
-        <div class="contenitore stretto">
-          <header class="intestazione-sezione">
-            <p class="occhiello rivela">Domande</p>
-            <h2 class="rivela">Quello che si chiede sempre</h2>
-          </header>
-
-          <div class="faq">
-            <details class="rivela">
-              <summary>Emette la fattura elettronica verso lo SDI?</summary>
-              <p>
-                No. La fatturazione è interna, con numerazione progressiva e IVA per aliquota, ma
-                il tracciato XML non viene generato e l'invio allo SDI non è implementato. È la
-                cosa che più di ogni altra va fatta bene o per niente: oggi resta un'estensione.
-              </p>
-            </details>
-            <details class="rivela">
-              <summary>Include un tempario ufficiale?</summary>
-              <p>
-                No. I tempi standard di riparazione sono dati sotto licenza. La manodopera si
-                registra a ore reali, con una tariffa configurabile per tipo di lavorazione —
-                meccanica, diagnosi, clima, gommista, carrozzeria — e ogni riga porta con sé la
-                tariffa applicata al momento, così cambiarla non riscrive i documenti già emessi.
-              </p>
-            </details>
-            <details class="rivela">
-              <summary>I ricambi sono valorizzati a FIFO?</summary>
-              <p>
-                A prezzo medio ponderato. Il FIFO richiede di tracciare i lotti e di sapere quale
-                lotto è uscito su quale scheda: per un'officina che compra dallo stesso
-                ricambista con variazioni di pochi punti, il medio ponderato dà lo stesso margine
-                con un decimo della complessità.
-              </p>
-            </details>
-            <details class="rivela">
-              <summary>Dove finiscono i dati?</summary>
-              <p>
-                In demo, nella memoria del browser: non esce niente. Con Supabase configurato,
-                nel progetto PostgreSQL che scegli tu — anche in Europa, anche su un'istanza
-                autogestita. Non c'è un servizio intermedio a cui i dati passino.
-              </p>
-            </details>
-            <details class="rivela">
-              <summary>Funziona su più officine?</summary>
-              <p>
-                L'isolamento per officina c'è già: ogni riga di ogni tabella porta il suo
-                <code>officinaId</code>, con un vincolo che impedisce a un riferimento di puntare
-                fuori. Mancano il passaggio di contesto fra sedi e i report consolidati.
-              </p>
-            </details>
-            <details class="rivela">
-              <summary>Serve una connessione sempre attiva?</summary>
-              <p>
-                Con Supabase sì, come per qualunque gestionale in cloud. La demo invece gira
-                interamente nel browser: utile per valutarlo con calma, anche senza rete.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================== chiusura ================================== -->
       <section class="chiusura">
-        <div class="contenitore stretto chiusura__corpo rivela">
+        <div class="contenitore stretto rivela">
           <h2>Aprilo, guardaci dentro, poi decidi</h2>
           <p>
             La demo è completa: tre mesi di storico, cinque addetti, tre ponti, tutti e dodici i
             moduli. Nessuna registrazione, nessuna carta, nessun dato che esce dalla macchina.
           </p>
           <div class="chiusura__azioni">
-            <a class="btn btn--pieno" href="#demo">Come avviarla</a>
-            <a class="btn btn--fantasma" href="#moduli">Rivedi i moduli</a>
+            <a class="btn btn--pieno" href="demo.html">Come si prova</a>
+            <a class="btn btn--fantasma" href="moduli.html">Cosa copre</a>
           </div>
         </div>
       </section>
     </main>
 
+    <nav class="contenitore scorri" aria-label="Pagine vicine">
+        
+        <a href="moduli.html"><span>Avanti</span><strong>Moduli</strong></a>
+      </nav>
+
     <footer class="pie">
       <div class="contenitore pie__riga">
         <div class="pie__marchio">
           <svg class="marchio__segno" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" rx="7" />
-            <path
-              d="M11.8 8.4a5.6 5.6 0 0 0 7 7.3l5.4 5.4a2 2 0 0 1-2.8 2.8l-5.4-5.4a5.6 5.6 0 0 1-7.3-7l3 3 2.5-.6.6-2.5-3-3Z"
-              class="marchio__chiave"
-            />
-          </svg>
+  <rect width="32" height="32" rx="7" />
+  <path d="M11.8 8.4a5.6 5.6 0 0 0 7 7.3l5.4 5.4a2 2 0 0 1-2.8 2.8l-5.4-5.4a5.6 5.6 0 0 1-7.3-7l3 3 2.5-.6.6-2.5-3-3Z" class="marchio__chiave" />
+</svg>
           <div>
             <strong>MechFlow</strong>
             <span>Gestionale per autofficine</span>
           </div>
         </div>
         <nav class="pie__nav" aria-label="Navigazione a piè di pagina">
-          <a href="#moduli">Moduli</a>
-          <a href="#flusso">Il flusso</a>
-          <a href="#numeri">I numeri</a>
-          <a href="#ruoli">Ruoli</a>
-          <a href="#demo">Demo</a>
-          <a href="#domande">Domande</a>
+          <a href="index.html">Home</a>
+          <a href="moduli.html">Moduli</a>
+          <a href="flusso.html">Il flusso</a>
+          <a href="numeri.html">I numeri</a>
+          <a href="officina.html">In officina</a>
+          <a href="sicurezza.html">Sicurezza</a>
+          <a href="demo.html">Provalo</a>
+          <a href="domande.html">Domande</a>
         </nav>
       </div>
       <div class="contenitore pie__coda">
         <p>
-          Sito vetrina statico, senza tracciamenti e senza richieste a terzi. Inter è di Rasmus
-          Andersson, SIL Open Font License 1.1.
+          Le schermate sono riprese dall’applicazione in modalità demo: i dati sono
+          quelli dell’officina di esempio, generati, non di un cliente reale. Sito statico,
+          senza tracciamenti e senza richieste a terzi. Inter è di Rasmus Andersson,
+          SIL Open Font License 1.1.
         </p>
       </div>
     </footer>

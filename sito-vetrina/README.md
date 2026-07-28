@@ -1,20 +1,19 @@
 # Sito vetrina di MechFlow
 
-Pagina di presentazione dell'applicazione, **separata dal gestionale**: vive in
-questa cartella, non condivide niente con `src/`, non entra nella build di Vite
-e non ha dipendenze da installare. È HTML, un foglio di stile e due file
-JavaScript.
+Sito di presentazione dell'applicazione: **otto pagine statiche**, separate dal
+gestionale. Vive in questa cartella, non condivide niente con `src/`, non entra
+nella build di Vite e non ha dipendenze da installare. HTML, un foglio di stile,
+due file JavaScript e le schermate dell'applicazione in WebP.
 
-Si può spostare in un repository a sé stante copiando questa sola cartella:
-non c'è alcun percorso che risalga verso la radice del progetto.
+Si può spostare in un repository o in un hosting a sé copiando questa sola
+cartella: non c'è alcun percorso che risalga verso la radice del progetto.
 
 ---
 
 ## Aprirlo
 
-Basta un doppio clic su `index.html`. Per vederlo esattamente come sarà in
-produzione — percorsi assoluti, intestazioni, tipi MIME — serve un server
-qualunque:
+Doppio clic su `index.html` funziona. Per vederlo come sarà in produzione —
+tipi MIME, intestazioni, cache — serve un server qualunque:
 
 ```bash
 cd sito-vetrina
@@ -25,40 +24,76 @@ E poi `http://localhost:4173`.
 
 ---
 
+## Le pagine
+
+| File | Contenuto |
+|---|---|
+| `index.html` | apertura, il problema che risolve, tre schermate d'assaggio |
+| `moduli.html` | i dodici moduli, uno per uno, ognuno con la sua schermata |
+| `flusso.html` | accettazione → preventivo → lavorazione → consegna e fattura |
+| `numeri.html` | conto economico, marginalità, produttività, tabella delle formule |
+| `officina.html` | l'uso da tablet e telefono, tema chiaro e scuro |
+| `sicurezza.html` | i tre ruoli, le cinque regole non negoziabili, dove finiscono i dati |
+| `demo.html` | il dataset dimostrativo, l'avvio, il collegamento a Supabase |
+| `domande.html` | le domande frequenti, comprese le risposte scomode |
+
+In fondo a ogni pagina ci sono i collegamenti alla precedente e alla successiva:
+lette in fila raccontano l'applicazione dall'inizio alla fine.
+
+---
+
+## Le schermate
+
+Sono **riprese vere** dell'applicazione in modalità demo, non mockup: browser
+reale a 1440 × 900 per il desktop, 390 × 844 (a densità doppia) per il telefono.
+Stanno in `immagini/`, in WebP a due risoluzioni — quella piena e una a metà
+larghezza servita via `srcset` agli schermi stretti. In tutto meno di 2 MB.
+
+I dati che si vedono sono quelli dell'officina di esempio, generati da un
+simulatore: nessun dato di un cliente reale è mai finito in una schermata.
+
+Un clic su una schermata la apre a piena finestra: a 1440 px dentro mezza
+colonna i numeri non si leggono.
+
+### Rifarle dopo una modifica all'applicazione
+
+Non c'è uno script nel sito che le rigeneri — le schermate si scattano quando
+l'interfaccia cambia davvero, non a ogni build. Il procedimento:
+
+1. avviare l'applicazione in modalità demo (`npm run dev` nella radice);
+2. catturare la pagina interessata a 1440 × 900 con il tema scuro;
+3. convertirla in WebP a qualità 80, salvando anche la versione a metà
+   larghezza con il suffisso `@720` (`@390` per le schermate da telefono);
+4. sostituire il file in `immagini/` mantenendo lo stesso nome.
+
+I nomi dei file corrispondono ai moduli: `dashboard`, `clienti`, `veicoli`,
+`preventivi`, `schede-aperte`, `magazzino`, `fornitori`, `fatturazione`,
+`spese`, `personale-turni`, `report`, `impostazioni`, più i dettagli
+(`scheda-dettaglio`, `preventivo-dettaglio`, `articolo-dettaglio`), le varianti
+in tema chiaro (`-chiaro`) e le tre da telefono (`mobile-`).
+
+---
+
 ## Che cosa c'è dentro
 
 ```
 sito-vetrina/
-├── index.html            la pagina, in una sola vista
+├── index.html  moduli.html  flusso.html  numeri.html
+├── officina.html  sicurezza.html  demo.html  domande.html
 ├── assets/
 │   ├── style.css         palette, superfici di vetro, impianto, adattivo
 │   ├── tema.js           chiaro/scuro applicato prima del primo disegno
-│   ├── script.js         menu, comparsa allo scorrimento, contatori
+│   ├── script.js         menu, comparsa allo scorrimento, ingranditore
 │   └── favicon.svg
+├── immagini/             le schermate, WebP a due risoluzioni
 ├── netlify.toml          pubblicazione della sola cartella
 ├── _headers              stesse intestazioni, per gli host che leggono questo
 └── README.md
 ```
 
-### Le sezioni della pagina
-
-| Ancora | Contenuto |
-|---|---|
-| apertura | promessa, due inviti all'azione, mockup della dashboard costruito in CSS |
-| `#perche` | il problema: lo stesso dato riscritto tre volte |
-| `#moduli` | le dodici aree funzionali, una scheda per ciascuna |
-| `#flusso` | accettazione → preventivo → scheda → fattura |
-| `#numeri` | le formule gestionali e tre note che non si leggono dalla formula |
-| `#ruoli` | titolare, capofficina, meccanico; le cinque regole non negoziabili |
-| `#officina` | l'uso da tablet: barra in basso, tabelle che diventano card |
-| `#demo` | il dataset dimostrativo, le sue invarianti, l'avvio in trenta secondi |
-| `#tecnica` | stack e scelte dichiarate |
-| `#domande` | fatturazione elettronica, tempari, FIFO, dove finiscono i dati |
-
-I contenuti vengono dal `README.md` alla radice: se cambia il comportamento
-dell'applicazione — una formula, un permesso, un modulo — la sezione
-corrispondente qui va aggiornata a mano. Sono testi, non dati generati:
-è un compromesso voluto, per non far dipendere la vetrina dalla build.
+L'intestazione e il piè di pagina sono ripetuti in ognuna delle otto pagine: è
+il prezzo di non avere un generatore. Se cambia una voce di menu va cambiata in
+otto file — una sostituzione, non un lavoro.
 
 ---
 
@@ -73,15 +108,15 @@ in `_headers` è di conseguenza molto stretta: `connect-src 'none'`.
 le superfici di vetro sono copiate da `src/index.css`. Il sito e il gestionale
 devono sembrare la stessa cosa, perché lo sono.
 
-**Niente immagini.** Il mockup della dashboard e quello del telefono sono
-costruiti con `div` e CSS: pesano zero, sono nitidi a qualunque densità e
-seguono il tema chiaro/scuro senza dover mantenere due schermate. Quando ci
-saranno screenshot veri dell'applicazione, prenderanno il posto dei mockup senza
-toccare l'impianto.
-
 **Degrada bene.** Senza JavaScript la pagina si legge tutta (le animazioni di
-comparsa si attivano solo con la classe `js`). Senza `backdrop-filter` le
-superfici diventano opache. Con `prefers-reduced-motion` le animazioni spariscono.
+comparsa si attivano solo con la classe `js`, e l'ingranditore semplicemente non
+si apre). Senza `backdrop-filter` le superfici diventano opache. Con
+`prefers-reduced-motion` le animazioni spariscono.
+
+**Onesto su quello che manca.** La pagina delle domande dice per esteso che
+l'invio allo SDI non è implementato, che non c'è un tempario, che i ricambi sono
+a prezzo medio ponderato e non a FIFO. Un cliente che lo scopre dopo è un
+cliente perso peggio.
 
 ---
 
