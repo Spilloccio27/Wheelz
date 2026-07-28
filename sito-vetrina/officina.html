@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#08080a" />
     <title>In officina, dal tablet — MechFlow</title>
-    <meta name="description" content="Sotto i 1024 px MechFlow cambia postura: barra di navigazione in basso, tabelle che diventano card, interfaccia monocromatica con il colore solo dove porta informazione." />
+    <meta name="description" content="Da telefono e tablet MechFlow cambia postura: navigazione in basso dove arriva il pollice, tabelle che diventano schede, colore solo dove porta informazione." />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/style.css" />
     <!-- Bloccante di proposito: applica il tema salvato prima del primo
@@ -13,7 +13,7 @@
     <script src="assets/tema.js"></script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="In officina, dal tablet" />
-    <meta property="og:description" content="Sotto i 1024 px MechFlow cambia postura: barra di navigazione in basso, tabelle che diventano card, interfaccia monocromatica con il colore solo dove porta informazione." />
+    <meta property="og:description" content="Da telefono e tablet MechFlow cambia postura: navigazione in basso dove arriva il pollice, tabelle che diventano schede, colore solo dove porta informazione." />
     <meta property="og:locale" content="it_IT" />
   </head>
 
@@ -30,30 +30,22 @@
           <span class="marchio__nome">MechFlow</span>
         </a>
 
-        <nav class="testata__nav" id="nav" aria-label="Navigazione principale">
+        <nav class="testata__nav" aria-label="Navigazione principale">
           <a href="moduli.html">Moduli</a>
           <a href="flusso.html">Il flusso</a>
           <a href="numeri.html">I numeri</a>
           <a href="officina.html" aria-current="page">In officina</a>
-          <a href="sicurezza.html">Sicurezza</a>
+          <a href="accessi.html">Accessi</a>
           <a href="demo.html">Provalo</a>
           <a href="domande.html">Domande</a>
         </nav>
 
         <div class="testata__azioni">
-          <button class="icona-btn" id="tema" type="button" aria-label="Cambia tema">
-            <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
-            </svg>
-            <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-            </svg>
+          <button class="icona-btn" data-tema type="button" aria-label="Cambia tema">
+            <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+            <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
           </button>
           <a class="btn btn--fantasma solo-desktop" href="demo.html">Provalo</a>
-          <button class="icona-btn solo-mobile" id="menu" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-          </button>
         </div>
       </div>
     </header>
@@ -64,8 +56,8 @@
           <p class="briciole rivela"><a href="index.html">MechFlow</a> · In officina</p>
           <h1 class="rivela">Una mano tiene il tablet, l’altra la chiave</h1>
           <p class="testo rivela">
-            Da scrivania c’è la barra laterale. Sotto i 1024 px sparisce e compare una navigazione
-            in basso, dove arriva il pollice di chi tiene il dispositivo con una mano sola.
+            Da scrivania c’è la barra laterale. Su telefono e tablet sparisce e la navigazione
+            scende in basso, dove arriva il pollice di chi tiene il dispositivo con una mano sola.
           </p>
         </div>
       </section>
@@ -76,17 +68,17 @@
             <figure class="telefono rivela">
   <img src="immagini/mobile-dashboard.webp" srcset="immagini/mobile-dashboard@390.webp 390w, immagini/mobile-dashboard.webp 780w"
        sizes="300px" width="780" height="1688" loading="lazy" decoding="async" alt="La dashboard su un telefono, con gli indicatori impilati e la barra di navigazione in basso." />
-  <figcaption>La dashboard: gli indicatori si impilano, i grafici restano leggibili.</figcaption>
+  <figcaption>Gli indicatori si impilano, i grafici restano leggibili.</figcaption>
 </figure>
             <figure class="telefono rivela">
   <img src="immagini/mobile-schede.webp" srcset="immagini/mobile-schede@390.webp 390w, immagini/mobile-schede.webp 780w"
-       sizes="300px" width="780" height="1688" loading="lazy" decoding="async" alt="Le schede di lavoro su telefono: ogni riga è diventata una card con numero, valore, stato e ponte." />
-  <figcaption>Le tabelle diventano card: numero in grande, valore in alto a destra.</figcaption>
+       sizes="300px" width="780" height="1688" loading="lazy" decoding="async" alt="Le schede di lavoro su telefono: ogni riga è diventata una scheda con numero, valore, stato e ponte." />
+  <figcaption>Ogni riga diventa una scheda che si legge senza trascinare.</figcaption>
 </figure>
             <figure class="telefono rivela">
   <img src="immagini/mobile-altro.webp" srcset="immagini/mobile-altro@390.webp 390w, immagini/mobile-altro.webp 780w"
-       sizes="300px" width="780" height="1688" loading="lazy" decoding="async" alt="Il foglio “Altro” aperto dal basso, con i moduli restanti, il tema e il cambio utente." />
-  <figcaption>Il foglio “Altro”: i moduli che non stanno nella barra, il tema, l’utente.</figcaption>
+       sizes="300px" width="780" height="1688" loading="lazy" decoding="async" alt="Il foglio «Altro» aperto dal basso, con i moduli restanti e il cambio utente." />
+  <figcaption>Il foglio «Altro»: quello che non sta nella barra.</figcaption>
 </figure>
           </div>
         </div>
@@ -98,19 +90,17 @@
             <article class="scheda rivela">
               <h3>Quattro voci più «Altro»</h3>
               <p>
-                Oggi, Schede, Clienti, Ricambi. Il resto sta in un foglio che sale dal basso,
-                insieme al tema e al cambio utente. La barra non è appoggiata al bordo:
-                galleggia staccata di dodici pixel, in vetro liquido, e rispetta la zona sicura
-                dei telefoni con la tacca.
+                Oggi, Schede, Clienti, Ricambi: quello che serve mentre si lavora. Il resto sta in
+                un foglio che sale dal basso. La barra galleggia staccata dal bordo e rispetta la
+                zona sicura dei telefoni con la tacca.
               </p>
             </article>
             <article class="scheda rivela">
-              <h3>Le tabelle diventano card</h3>
+              <h3>Niente tabelle da trascinare</h3>
               <p>
-                Una tabella da dieci colonne su uno schermo da 375 px è una tabella che si legge
-                trascinando. Al suo posto: identificativo in grande, il dato più importante in alto
-                a destra, il resto come coppie etichetta e valore. Con un selettore
-                <em>Ordina per</em>, perché l’intestazione cliccabile non c’è più.
+                Una tabella da dieci colonne su uno schermo da cinque pollici si legge solo
+                trascinandola. Al suo posto: numero in grande, il dato che serve in alto a destra,
+                il resto come coppie etichetta e valore, con un selettore per l’ordinamento.
               </p>
             </article>
             <article class="scheda rivela">
@@ -132,8 +122,8 @@
             <p class="occhiello rivela">Tema</p>
             <h2 class="rivela">Scuro in officina, chiaro in ufficio</h2>
             <p class="testo rivela">
-              Lo stesso schermo, gli stessi dati. Il tema si cambia dalla barra laterale e resta
-              quello scelto; le tinte semantiche sono verificate a contrasto su entrambi i fondi.
+              Lo stesso schermo, gli stessi dati: cambia solo quanto luce c’è intorno. Il tema si
+              sceglie una volta e resta quello.
             </p>
           </header>
           <div class="griglia-schede">
@@ -145,7 +135,7 @@
   <img src="immagini/dashboard-chiaro.webp" srcset="immagini/dashboard-chiaro@720.webp 720w, immagini/dashboard-chiaro.webp 1440w"
        sizes="(max-width: 900px) 100vw, 45vw" width="1440" height="900" loading="lazy" decoding="async"
        alt="La dashboard di MechFlow in tema chiaro." />
-  <figcaption>Tema chiaro: stessa gerarchia, contrasto verificato.</figcaption>
+  <figcaption>La stessa dashboard, in chiaro.</figcaption>
 </figure>
             <figure class="cornice rivela">
   <div class="cornice__barra" aria-hidden="true">
@@ -164,9 +154,9 @@
       <section class="chiusura sezione--alt">
         <div class="contenitore stretto rivela">
           <h2>E chi vede cosa?</h2>
-          <p>Il titolare, il capofficina e il meccanico aprono la stessa applicazione e trovano tre officine diverse.</p>
+          <p>Titolare, capofficina e meccanico aprono la stessa applicazione e trovano tre officine diverse.</p>
           <div class="chiusura__azioni">
-            <a class="btn btn--pieno" href="sicurezza.html">Ruoli e permessi</a>
+            <a class="btn btn--pieno" href="accessi.html">Ruoli e accessi</a>
           </div>
         </div>
       </section>
@@ -174,41 +164,91 @@
 
     <nav class="contenitore scorri" aria-label="Pagine vicine">
         <a href="numeri.html"><span>Indietro</span><strong>I numeri</strong></a>
-        <a href="sicurezza.html"><span>Avanti</span><strong>Sicurezza</strong></a>
+        <a href="accessi.html"><span>Avanti</span><strong>Accessi</strong></a>
       </nav>
 
     <footer class="pie">
-      <div class="contenitore pie__riga">
-        <div class="pie__marchio">
-          <svg class="marchio__segno" viewBox="0 0 32 32" aria-hidden="true">
+      <div class="contenitore pie__griglia">
+        <div>
+          <div class="pie__marchio">
+            <svg class="marchio__segno" viewBox="0 0 32 32" aria-hidden="true">
   <rect width="32" height="32" rx="7" />
   <path d="M11.8 8.4a5.6 5.6 0 0 0 7 7.3l5.4 5.4a2 2 0 0 1-2.8 2.8l-5.4-5.4a5.6 5.6 0 0 1-7.3-7l3 3 2.5-.6.6-2.5-3-3Z" class="marchio__chiave" />
 </svg>
-          <div>
             <strong>MechFlow</strong>
-            <span>Gestionale per autofficine</span>
           </div>
+          <p class="pie__frase">
+            Il gestionale per chi ripara automobili: dal veicolo che entra in accettazione
+            alla fattura consegnata, senza riscrivere niente due volte.
+          </p>
+          <a class="pie__invito" href="demo.html">Guarda com’è, con i dati di esempio <span aria-hidden="true">→</span></a>
         </div>
-        <nav class="pie__nav" aria-label="Navigazione a piè di pagina">
-          <a href="index.html">Home</a>
-          <a href="moduli.html">Moduli</a>
-          <a href="flusso.html">Il flusso</a>
-          <a href="numeri.html">I numeri</a>
-          <a href="officina.html">In officina</a>
-          <a href="sicurezza.html">Sicurezza</a>
-          <a href="demo.html">Provalo</a>
-          <a href="domande.html">Domande</a>
-        </nav>
+
+        <div class="pie__colonna">
+          <h2>Il prodotto</h2>
+          <ul>
+            <li><a href="moduli.html">I moduli</a></li>
+            <li><a href="flusso.html">Il flusso di lavoro</a></li>
+            <li><a href="numeri.html">I numeri dell’officina</a></li>
+          </ul>
+        </div>
+
+        <div class="pie__colonna">
+          <h2>Prima di decidere</h2>
+          <ul>
+            <li><a href="officina.html">Dal tablet, in officina</a></li>
+            <li><a href="accessi.html">Chi vede cosa</a></li>
+            <li><a href="domande.html">Domande frequenti</a></li>
+          </ul>
+        </div>
       </div>
+
       <div class="contenitore pie__coda">
-        <p>
-          Le schermate sono riprese dall’applicazione in modalità demo: i dati sono
-          quelli dell’officina di esempio, generati, non di un cliente reale. Sito statico,
-          senza tracciamenti e senza richieste a terzi. Inter è di Rasmus Andersson,
-          SIL Open Font License 1.1.
-        </p>
+        <p>MechFlow · gestionale per autofficine</p>
+        <p>Le schermate sono riprese dall’officina di esempio: nessun dato di un cliente reale.</p>
       </div>
     </footer>
+
+    <nav class="barra-basso" aria-label="Navigazione rapida">
+          <a href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.2 12 4l8 7.2V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" /></svg>
+            Home
+          </a>
+          <a href="moduli.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6" /><rect x="13" y="4" width="7" height="7" rx="1.6" /><rect x="4" y="13" width="7" height="7" rx="1.6" /><rect x="13" y="13" width="7" height="7" rx="1.6" /></svg>
+            Moduli
+          </a>
+          <a href="flusso.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9a4 4 0 0 1 0 8H7m0 0 3-3m-3 3 3 3" /><circle cx="19" cy="7" r="2" /></svg>
+            Flusso
+          </a>
+          <a href="demo.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">undefined</svg>
+            Provalo
+          </a>
+      <button id="altro" type="button" aria-expanded="false" aria-controls="foglio" class="attivo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="12" r="1.4" /><circle cx="12" cy="12" r="1.4" /><circle cx="18.5" cy="12" r="1.4" /></svg>
+        Altro
+      </button>
+    </nav>
+
+    <div class="foglio" id="foglio" hidden>
+      <button class="foglio__velo" type="button" tabindex="-1" aria-label="Chiudi"></button>
+      <div class="foglio__corpo" role="dialog" aria-label="Altre pagine">
+        <div class="foglio__maniglia" aria-hidden="true"></div>
+        <div class="foglio__voci">
+            <a href="numeri.html">I numeri</a>
+            <a href="officina.html" aria-current="page">In officina</a>
+            <a href="accessi.html">Accessi</a>
+            <a href="domande.html">Domande</a>
+        </div>
+        <button class="foglio__tema" data-tema type="button">
+          <span>Cambia tema</span>
+          <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+          <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        </button>
+      </div>
+    </div>
 
     <script src="assets/script.js"></script>
   </body>

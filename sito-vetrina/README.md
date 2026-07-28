@@ -33,12 +33,17 @@ E poi `http://localhost:4173`.
 | `flusso.html` | accettazione → preventivo → lavorazione → consegna e fattura |
 | `numeri.html` | conto economico, marginalità, produttività, tabella delle formule |
 | `officina.html` | l'uso da tablet e telefono, tema chiaro e scuro |
-| `sicurezza.html` | i tre ruoli, le cinque regole non negoziabili, dove finiscono i dati |
-| `demo.html` | il dataset dimostrativo, l'avvio, il collegamento a Supabase |
+| `accessi.html` | i tre ruoli, cosa non può succedere, la scelta sul capofficina |
+| `demo.html` | l'officina di esempio, com'è fatta, come si prova |
 | `domande.html` | le domande frequenti, comprese le risposte scomode |
 
 In fondo a ogni pagina ci sono i collegamenti alla precedente e alla successiva:
 lette in fila raccontano l'applicazione dall'inizio alla fine.
+
+Ogni dato compare una volta sola e nella pagina che gli compete: i numeri
+dell'officina di esempio stanno in `demo.html`, gli importi di un mese in
+`numeri.html`, l'elenco dei moduli in `moduli.html`. Se un numero serve
+altrove, si rimanda alla pagina che lo ospita invece di ripeterlo.
 
 ---
 
@@ -79,11 +84,11 @@ in tema chiaro (`-chiaro`) e le tre da telefono (`mobile-`).
 ```
 sito-vetrina/
 ├── index.html  moduli.html  flusso.html  numeri.html
-├── officina.html  sicurezza.html  demo.html  domande.html
+├── officina.html  accessi.html  demo.html  domande.html
 ├── assets/
 │   ├── style.css         palette, superfici di vetro, impianto, adattivo
 │   ├── tema.js           chiaro/scuro applicato prima del primo disegno
-│   ├── script.js         menu, comparsa allo scorrimento, ingranditore
+│   ├── script.js         tema, foglio «Altro», comparsa, ingranditore
 │   └── favicon.svg
 ├── immagini/             le schermate, WebP a due risoluzioni
 ├── netlify.toml          pubblicazione della sola cartella
@@ -108,15 +113,26 @@ in `_headers` è di conseguenza molto stretta: `connect-src 'none'`.
 le superfici di vetro sono copiate da `src/index.css`. Il sito e il gestionale
 devono sembrare la stessa cosa, perché lo sono.
 
+**Navigazione a due posture.** Da scrivania, le voci stanno nella barra in
+alto. Sotto i 900 px la barra in alto tiene solo il marchio e il tema, e la
+navigazione scende in basso — quattro destinazioni più «Altro», che apre un
+foglio dal basso con le pagine restanti. È la stessa postura dell'applicazione,
+per la stessa ragione: il pollice arriva lì.
+
+**Niente dettagli tecnici.** Il sito parla di officina, non di come è costruito
+il gestionale: nessun riferimento all'archivio dati, alle librerie o ai comandi
+da terminale. Chi deve installarlo trova tutto nel `README.md` alla radice del
+progetto.
+
 **Degrada bene.** Senza JavaScript la pagina si legge tutta (le animazioni di
 comparsa si attivano solo con la classe `js`, e l'ingranditore semplicemente non
 si apre). Senza `backdrop-filter` le superfici diventano opache. Con
 `prefers-reduced-motion` le animazioni spariscono.
 
 **Onesto su quello che manca.** La pagina delle domande dice per esteso che
-l'invio allo SDI non è implementato, che non c'è un tempario, che i ricambi sono
-a prezzo medio ponderato e non a FIFO. Un cliente che lo scopre dopo è un
-cliente perso peggio.
+l'invio allo SDI non è implementato, che non c'è un tempario, che i report di
+due sedi non si sommano. Un cliente che lo scopre dopo è un cliente perso
+peggio.
 
 ---
 

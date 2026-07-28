@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#08080a" />
     <title>I numeri dell’officina — MechFlow</title>
-    <meta name="description" content="Produttività, margine, incidenza ricambi, costo orario, break-even, occupazione dei ponti: le formule gestionali di MechFlow e come sono calcolate." />
+    <meta name="description" content="Produttività, margine, incidenza ricambi, costo orario, punto di pareggio, occupazione dei ponti: i numeri che dicono se l’officina guadagna, e come sono calcolati." />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/style.css" />
     <!-- Bloccante di proposito: applica il tema salvato prima del primo
@@ -13,7 +13,7 @@
     <script src="assets/tema.js"></script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="I numeri dell’officina" />
-    <meta property="og:description" content="Produttività, margine, incidenza ricambi, costo orario, break-even, occupazione dei ponti: le formule gestionali di MechFlow e come sono calcolate." />
+    <meta property="og:description" content="Produttività, margine, incidenza ricambi, costo orario, punto di pareggio, occupazione dei ponti: i numeri che dicono se l’officina guadagna, e come sono calcolati." />
     <meta property="og:locale" content="it_IT" />
   </head>
 
@@ -30,30 +30,22 @@
           <span class="marchio__nome">MechFlow</span>
         </a>
 
-        <nav class="testata__nav" id="nav" aria-label="Navigazione principale">
+        <nav class="testata__nav" aria-label="Navigazione principale">
           <a href="moduli.html">Moduli</a>
           <a href="flusso.html">Il flusso</a>
           <a href="numeri.html" aria-current="page">I numeri</a>
           <a href="officina.html">In officina</a>
-          <a href="sicurezza.html">Sicurezza</a>
+          <a href="accessi.html">Accessi</a>
           <a href="demo.html">Provalo</a>
           <a href="domande.html">Domande</a>
         </nav>
 
         <div class="testata__azioni">
-          <button class="icona-btn" id="tema" type="button" aria-label="Cambia tema">
-            <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
-            </svg>
-            <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-            </svg>
+          <button class="icona-btn" data-tema type="button" aria-label="Cambia tema">
+            <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+            <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
           </button>
           <a class="btn btn--fantasma solo-desktop" href="demo.html">Provalo</a>
-          <button class="icona-btn solo-mobile" id="menu" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-          </button>
         </div>
       </div>
     </header>
@@ -62,11 +54,10 @@
       <section class="pagina-testa">
         <div class="contenitore">
           <p class="briciole rivela"><a href="index.html">MechFlow</a> · I numeri</p>
-          <h1 class="rivela">Le formule che dicono se l’officina guadagna</h1>
+          <h1 class="rivela">I numeri che dicono se l’officina guadagna</h1>
           <p class="testo rivela">
-            Sono funzioni pure, tutte nello stesso file, coperte da quarantasette test. È il punto
-            in cui un errore silenzioso costa di più: un margine sbagliato non si vede, si scopre
-            a fine anno.
+            Non sono stime a fine anno: escono dalle stesse righe con cui si lavora tutti i
+            giorni. Le schermate qui sotto vengono dall’officina di esempio.
           </p>
         </div>
       </section>
@@ -83,14 +74,14 @@
   <img src="immagini/report.webp" srcset="immagini/report@720.webp 720w, immagini/report.webp 1440w"
        sizes="(max-width: 1100px) 100vw, 58vw" width="1440" height="900" loading="lazy" decoding="async"
        alt="Il conto economico del periodo con margine di contribuzione e risultato." />
-  <figcaption>Luglio 2026: 38.277 € di ricavi, 51,7% di margine di contribuzione, 1.375 € di risultato.</figcaption>
+  <figcaption>Un mese dell’officina di esempio: 38.277 € di ricavi, 1.375 € di risultato.</figcaption>
 </figure>
   </div>
   <div class="blocco__testo rivela">
       <span class="blocco__eti">Conto economico</span>
       <h2>Dai ricavi al risultato</h2>
       <p>Ricavi di manodopera e di ricambi, costo dei ricambi impiegati, altri costi variabili, margine di contribuzione. Poi il costo del lavoro con gli oneri, i costi fissi di struttura, e quello che resta.</p>
-      <p>Accanto, il break-even: quanto deve fatturare l’officina per coprire i costi fissi, tradotto in schede al giorno e in ore vendute al giorno.</p>
+      <p>Accanto, il punto di pareggio: quanto deve fatturare l’officina per coprire i costi fissi, tradotto in schede al giorno e in ore vendute al giorno.</p>
       
   </div>
 </article>
@@ -105,15 +96,15 @@
   <img src="immagini/report-marginalita.webp" srcset="immagini/report-marginalita@720.webp 720w, immagini/report-marginalita.webp 1440w"
        sizes="(max-width: 1100px) 100vw, 58vw" width="1440" height="900" loading="lazy" decoding="async"
        alt="La scheda marginalità del report, con l’andamento del margine e la matrice degli interventi." />
-  <figcaption>Marginalità nel tempo e matrice degli interventi per frequenza e margine.</figcaption>
+  <figcaption>Marginalità nel tempo e matrice degli interventi.</figcaption>
 </figure>
   </div>
   <div class="blocco__testo rivela">
       <span class="blocco__eti">Marginalità</span>
       <h2>Dove si guadagna davvero</h2>
-      <p>Il margine non è uguale su tutto: la manodopera e i ricambi hanno due economie diverse, e l’incidenza dei ricambi sul fatturato racconta come sta cambiando il mix.</p>
-      <p>La matrice degli interventi incrocia frequenza e margine in quattro quadranti: cosa torna spesso e rende, cosa torna spesso e non rende, cosa è raro ma prezioso.</p>
-      <ul class="punti"><li>La soglia sulla frequenza è la mediana, non la media</li><li>Sulla marginalità la media va bene: lì gli estremi contano</li></ul>
+      <p>Il margine non è uguale su tutto: manodopera e ricambi hanno due economie diverse, e l’incidenza dei ricambi sul fatturato racconta come sta cambiando il mix.</p>
+      <p>La matrice degli interventi incrocia frequenza e margine: cosa torna spesso e rende, cosa torna spesso e non rende, cosa è raro ma prezioso.</p>
+      <ul class="punti"><li>La soglia sulla frequenza è la mediana, così due tagliandi in più non spostano l’asticella per tutti</li><li>Sul margine conta la media: lì gli estremi vanno visti</li></ul>
   </div>
 </article>
 
@@ -127,15 +118,15 @@
   <img src="immagini/report-produttivita.webp" srcset="immagini/report-produttivita@720.webp 720w, immagini/report-produttivita.webp 1440w"
        sizes="(max-width: 1100px) 100vw, 58vw" width="1440" height="900" loading="lazy" decoding="async"
        alt="La scheda produttività con le ore vendute per meccanico e l’occupazione dei ponti." />
-  <figcaption>Produttività per meccanico: ore vendute contro ore di presenza.</figcaption>
+  <figcaption>Ore vendute contro ore di presenza, meccanico per meccanico.</figcaption>
 </figure>
   </div>
   <div class="blocco__testo rivela">
       <span class="blocco__eti">Produttività</span>
       <h2>Ore vendute su ore pagate</h2>
       <p>La produttività è il rapporto fra le ore che finiscono su una scheda e le ore di presenza. È il numero che dice se i ponti stanno lavorando o aspettando.</p>
-      <p>Al denominatore ci va solo chi può vendere ore: l’accettazione e l’amministrazione hanno le ore nel costo del lavoro — dove è giusto che siano — ma fuori dalla produttività.</p>
-      <ul class="punti"><li>Nella demo: officina intorno al 52%, meccanici singoli intorno al 70%</li><li>Occupazione dei ponti calcolata sulle ore di apertura reali</li></ul>
+      <p>Nel calcolo entra solo chi può vendere ore: l’accettazione e l’amministrazione pesano sul costo del lavoro — dove è giusto che siano — ma non qui.</p>
+      <ul class="punti"><li>Produttività per singolo meccanico, non solo d’officina</li><li>Occupazione dei ponti sulle ore di apertura reali</li></ul>
   </div>
 </article>
 
@@ -149,14 +140,14 @@
   <img src="immagini/dashboard-basso.webp" srcset="immagini/dashboard-basso@720.webp 720w, immagini/dashboard-basso.webp 1440w"
        sizes="(max-width: 1100px) 100vw, 58vw" width="1440" height="900" loading="lazy" decoding="async"
        alt="La parte bassa della dashboard con l’occupazione dei ponti e gli avvisi." />
-  <figcaption>Occupazione dei ponti e avvisi: cosa chiede attenzione oggi.</figcaption>
+  <figcaption>Occupazione dei ponti e avvisi del giorno.</figcaption>
 </figure>
   </div>
   <div class="blocco__testo rivela">
-      <span class="blocco__eti">Ogni giorno</span>
+      <span class="blocco__eti">Ogni mattina</span>
       <h2>I ponti, e cosa chiede attenzione</h2>
-      <p>In fondo alla dashboard c’è la parte che si guarda al mattino: quanti ponti sono occupati, da cosa, e la lista delle cose che chiedono un intervento.</p>
-      <p>Insoluti, ricambi sotto scorta, revisioni in scadenza, schede ferme da troppo: sono l’unica cosa che si legge attraversando l’officina con il tablet in mano.</p>
+      <p>In fondo alla dashboard c’è la parte che si guarda appena aperta la serranda: quanti ponti sono occupati e da cosa.</p>
+      <p>Sotto, la lista di quello che chiede un intervento: insoluti, ricambi sotto scorta, revisioni in scadenza, schede ferme da troppo.</p>
       
   </div>
 </article>
@@ -166,7 +157,11 @@
       <section class="sezione sezione--alt">
         <div class="contenitore">
           <header class="intestazione-sezione">
-            <h2 class="rivela">Le formule, per esteso</h2>
+            <h2 class="rivela">Come sono calcolati</h2>
+            <p class="testo rivela">
+              Senza sorprese e senza scorciatoie: sono le definizioni che userebbe un
+              commercialista, applicate ai dati che l’officina produce lavorando.
+            </p>
           </header>
           <div class="tabella-avvolge rivela">
             <table class="tabella">
@@ -175,41 +170,39 @@
               </thead>
               <tbody>
                 <tr><td>Ricavo manodopera</td><td>ore lavorate × tariffa oraria della lavorazione</td></tr>
-                <tr><td>Margine ricambio</td><td>(prezzo di vendita − prezzo medio ponderato) / prezzo di vendita</td></tr>
-                <tr><td>Prezzo consigliato</td><td>prezzo medio ponderato × (1 + ricarico), poi ri-lordato dell’IVA</td></tr>
+                <tr><td>Margine ricambio</td><td>(prezzo di vendita − costo medio) / prezzo di vendita</td></tr>
+                <tr><td>Prezzo consigliato</td><td>costo medio × (1 + ricarico), poi ri-lordato dell’IVA</td></tr>
                 <tr><td>Incidenza ricambi</td><td>costo dei ricambi impiegati / fatturato del periodo</td></tr>
                 <tr><td>Costo orario meccanico</td><td>paga oraria × (1 + oneri %); straordinari maggiorati del 15% prima degli oneri</td></tr>
                 <tr><td>Produttività</td><td>ore vendute su scheda / ore di presenza di chi può vendere ore</td></tr>
                 <tr><td>Occupazione ponti</td><td>ore lavorate / (ponti × ore di apertura × giorni)</td></tr>
                 <tr><td>Valore medio scheda</td><td>fatturato / numero di schede chiuse</td></tr>
-                <tr><td>Break-even</td><td>costi fissi mensili, personale incluso / margine di contribuzione</td></tr>
-                <tr><td>Prezzo medio ponderato</td><td>a ogni carico: (giacenza × medio + qtà × prezzo) / (giacenza + qtà)</td></tr>
-                <tr><td>Matrice interventi</td><td>frequenza (rispetto alla mediana) × margine (rispetto alla media)</td></tr>
+                <tr><td>Punto di pareggio</td><td>costi fissi mensili, personale incluso / margine di contribuzione</td></tr>
+                <tr><td>Costo medio ricambio</td><td>a ogni carico si media il costo esistente con quello della nuova bolla</td></tr>
               </tbody>
             </table>
           </div>
 
           <div class="note">
             <article class="nota rivela">
-              <h3>Giacenza a zero</h3>
+              <h3>Il pareggio, in schede</h3>
               <p>
-                Con giacenza nulla o negativa fa testo il prezzo del carico: mediare su una
-                giacenza che non esiste produce un costo inventato, e quel costo finirebbe nel
-                margine di ogni scheda successiva.
+                Non resta un importo astratto: viene convertito in schede al giorno e in ore
+                vendute al giorno, che è il modo in cui in officina si ragiona davvero.
               </p>
             </article>
             <article class="nota rivela">
-              <h3>Quattro decimali</h3>
+              <h3>La minuteria conta</h3>
               <p>
-                Il prezzo medio ponderato è tenuto a quattro decimali: sulla minuteria da 0,15 €
-                due decimali si mangiano il margine nell’arrotondamento, e la minuteria è tanta.
+                Il costo medio dei ricambi è tenuto con precisione al centesimo di centesimo:
+                sui pezzi da quindici centesimi l’arrotondamento si mangerebbe il margine.
               </p>
             </article>
             <article class="nota rivela">
-              <h3>Break-even leggibile</h3>
+              <h3>Le tariffe non riscrivono il passato</h3>
               <p>
-                Il pareggio non resta un importo astratto: viene convertito in schede al giorno e
-                in ore vendute al giorno, che è il modo in cui in officina si ragiona davvero.
+                Alzare una tariffa cambia i preventivi da qui in avanti. I documenti già emessi
+                restano com’erano, con la tariffa che avevi quel giorno.
               </p>
             </article>
           </div>
@@ -233,37 +226,87 @@
       </nav>
 
     <footer class="pie">
-      <div class="contenitore pie__riga">
-        <div class="pie__marchio">
-          <svg class="marchio__segno" viewBox="0 0 32 32" aria-hidden="true">
+      <div class="contenitore pie__griglia">
+        <div>
+          <div class="pie__marchio">
+            <svg class="marchio__segno" viewBox="0 0 32 32" aria-hidden="true">
   <rect width="32" height="32" rx="7" />
   <path d="M11.8 8.4a5.6 5.6 0 0 0 7 7.3l5.4 5.4a2 2 0 0 1-2.8 2.8l-5.4-5.4a5.6 5.6 0 0 1-7.3-7l3 3 2.5-.6.6-2.5-3-3Z" class="marchio__chiave" />
 </svg>
-          <div>
             <strong>MechFlow</strong>
-            <span>Gestionale per autofficine</span>
           </div>
+          <p class="pie__frase">
+            Il gestionale per chi ripara automobili: dal veicolo che entra in accettazione
+            alla fattura consegnata, senza riscrivere niente due volte.
+          </p>
+          <a class="pie__invito" href="demo.html">Guarda com’è, con i dati di esempio <span aria-hidden="true">→</span></a>
         </div>
-        <nav class="pie__nav" aria-label="Navigazione a piè di pagina">
-          <a href="index.html">Home</a>
-          <a href="moduli.html">Moduli</a>
-          <a href="flusso.html">Il flusso</a>
-          <a href="numeri.html">I numeri</a>
-          <a href="officina.html">In officina</a>
-          <a href="sicurezza.html">Sicurezza</a>
-          <a href="demo.html">Provalo</a>
-          <a href="domande.html">Domande</a>
-        </nav>
+
+        <div class="pie__colonna">
+          <h2>Il prodotto</h2>
+          <ul>
+            <li><a href="moduli.html">I moduli</a></li>
+            <li><a href="flusso.html">Il flusso di lavoro</a></li>
+            <li><a href="numeri.html">I numeri dell’officina</a></li>
+          </ul>
+        </div>
+
+        <div class="pie__colonna">
+          <h2>Prima di decidere</h2>
+          <ul>
+            <li><a href="officina.html">Dal tablet, in officina</a></li>
+            <li><a href="accessi.html">Chi vede cosa</a></li>
+            <li><a href="domande.html">Domande frequenti</a></li>
+          </ul>
+        </div>
       </div>
+
       <div class="contenitore pie__coda">
-        <p>
-          Le schermate sono riprese dall’applicazione in modalità demo: i dati sono
-          quelli dell’officina di esempio, generati, non di un cliente reale. Sito statico,
-          senza tracciamenti e senza richieste a terzi. Inter è di Rasmus Andersson,
-          SIL Open Font License 1.1.
-        </p>
+        <p>MechFlow · gestionale per autofficine</p>
+        <p>Le schermate sono riprese dall’officina di esempio: nessun dato di un cliente reale.</p>
       </div>
     </footer>
+
+    <nav class="barra-basso" aria-label="Navigazione rapida">
+          <a href="index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.2 12 4l8 7.2V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" /></svg>
+            Home
+          </a>
+          <a href="moduli.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6" /><rect x="13" y="4" width="7" height="7" rx="1.6" /><rect x="4" y="13" width="7" height="7" rx="1.6" /><rect x="13" y="13" width="7" height="7" rx="1.6" /></svg>
+            Moduli
+          </a>
+          <a href="flusso.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9a4 4 0 0 1 0 8H7m0 0 3-3m-3 3 3 3" /><circle cx="19" cy="7" r="2" /></svg>
+            Flusso
+          </a>
+          <a href="demo.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">undefined</svg>
+            Provalo
+          </a>
+      <button id="altro" type="button" aria-expanded="false" aria-controls="foglio" class="attivo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="12" r="1.4" /><circle cx="12" cy="12" r="1.4" /><circle cx="18.5" cy="12" r="1.4" /></svg>
+        Altro
+      </button>
+    </nav>
+
+    <div class="foglio" id="foglio" hidden>
+      <button class="foglio__velo" type="button" tabindex="-1" aria-label="Chiudi"></button>
+      <div class="foglio__corpo" role="dialog" aria-label="Altre pagine">
+        <div class="foglio__maniglia" aria-hidden="true"></div>
+        <div class="foglio__voci">
+            <a href="numeri.html" aria-current="page">I numeri</a>
+            <a href="officina.html">In officina</a>
+            <a href="accessi.html">Accessi</a>
+            <a href="domande.html">Domande</a>
+        </div>
+        <button class="foglio__tema" data-tema type="button">
+          <span>Cambia tema</span>
+          <svg class="ico-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" /></svg>
+          <svg class="ico-sole" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+        </button>
+      </div>
+    </div>
 
     <script src="assets/script.js"></script>
   </body>

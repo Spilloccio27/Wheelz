@@ -1,9 +1,9 @@
 /**
  * Interazioni del sito vetrina, uguali su tutte le pagine.
  *
- * Quattro cose: l'interruttore del tema, il menu da telefono, la comparsa
- * degli elementi allo scorrimento e l'ingranditore delle schermate.
- * Nessuna dipendenza, nessuna richiesta di rete.
+ * L'interruttore del tema, il foglio «Altro» della barra in basso, la
+ * comparsa degli elementi allo scorrimento e l'ingranditore delle
+ * schermate. Nessuna dipendenza, nessuna richiesta di rete.
  */
 ;(function () {
   'use strict'
@@ -15,7 +15,6 @@
 
   /* ------------------------------- tema -------------------------------- */
 
-  var bottoneTema = document.getElementById('tema')
   var metaColore = document.querySelector('meta[name="theme-color"]')
 
   function aggiornaColoreBarra() {
@@ -24,39 +23,53 @@
     }
   }
 
+  function cambiaTema() {
+    var scuro = radice.classList.toggle('dark')
+    aggiornaColoreBarra()
+    try {
+      localStorage.setItem(CHIAVE, scuro ? 'scuro' : 'chiaro')
+    } catch (e) {
+      /* niente archiviazione: il tema vale per questa visita. */
+    }
+  }
+
   aggiornaColoreBarra()
 
-  if (bottoneTema) {
-    bottoneTema.addEventListener('click', function () {
-      var scuro = radice.classList.toggle('dark')
-      aggiornaColoreBarra()
-      try {
-        localStorage.setItem(CHIAVE, scuro ? 'scuro' : 'chiaro')
-      } catch (e) {
-        /* niente archiviazione: il tema vale per questa visita. */
-      }
-    })
+  Array.prototype.slice.call(document.querySelectorAll('[data-tema]')).forEach(function (bottone) {
+    bottone.addEventListener('click', cambiaTema)
+  })
+
+  /* ------------------- foglio «Altro» da telefono ---------------------- */
+
+  var foglio = document.getElementById('foglio')
+  var apriFoglio = document.getElementById('altro')
+
+  function chiudiFoglio() {
+    if (!foglio) return
+    foglio.hidden = true
+    document.body.style.overflow = ''
+    if (apriFoglio) {
+      apriFoglio.setAttribute('aria-expanded', 'false')
+      apriFoglio.focus()
+    }
   }
 
-  /* ---------------------------- menu mobile ---------------------------- */
-
-  var bottoneMenu = document.getElementById('menu')
-  var nav = document.getElementById('nav')
-
-  function chiudiMenu() {
-    if (!nav || !bottoneMenu) return
-    nav.classList.remove('aperto')
-    bottoneMenu.setAttribute('aria-expanded', 'false')
-  }
-
-  if (bottoneMenu && nav) {
-    bottoneMenu.addEventListener('click', function () {
-      var aperto = nav.classList.toggle('aperto')
-      bottoneMenu.setAttribute('aria-expanded', String(aperto))
+  if (foglio && apriFoglio) {
+    apriFoglio.addEventListener('click', function () {
+      foglio.hidden = false
+      document.body.style.overflow = 'hidden'
+      apriFoglio.setAttribute('aria-expanded', 'true')
+      var prima = foglio.querySelector('a, button')
+      if (prima) prima.focus()
     })
 
-    nav.addEventListener('click', function (evento) {
-      if (evento.target.tagName === 'A') chiudiMenu()
+    foglio.addEventListener('click', function (evento) {
+      /* il velo e le voci chiudono; il resto del foglio no */
+      if (evento.target.closest('.foglio__velo, .foglio__voci a')) chiudiFoglio()
+    })
+
+    document.addEventListener('keydown', function (evento) {
+      if (evento.key === 'Escape' && !foglio.hidden) chiudiFoglio()
     })
   }
 
@@ -103,51 +116,10 @@
     })
   }
 
-  /* ------------------------- numeri che salgono ------------------------ */
-
-  var contatori = Array.prototype.slice.call(document.querySelectorAll('[data-conta]'))
-
-  function conta(elemento) {
-    var arrivo = Number(elemento.getAttribute('data-conta'))
-    if (!isFinite(arrivo) || motoRidotto || arrivo === 0) {
-      elemento.textContent = String(arrivo)
-      return
-    }
-
-    var durata = 900
-    var inizio = null
-
-    function passo(ora) {
-      if (inizio === null) inizio = ora
-      var quota = Math.min((ora - inizio) / durata, 1)
-      var morbida = 1 - Math.pow(1 - quota, 3)
-      elemento.textContent = String(Math.round(arrivo * morbida))
-      if (quota < 1) requestAnimationFrame(passo)
-    }
-
-    requestAnimationFrame(passo)
-  }
-
-  if ('IntersectionObserver' in window && contatori.length) {
-    var occhio = new IntersectionObserver(
-      function (voci) {
-        voci.forEach(function (voce) {
-          if (!voce.isIntersecting) return
-          conta(voce.target)
-          occhio.unobserve(voce.target)
-        })
-      },
-      { threshold: 0.5 }
-    )
-    contatori.forEach(function (elemento) {
-      occhio.observe(elemento)
-    })
-  }
-
   /* ------------------------- ingranditore ------------------------------ *
-   * Le schermate sono larghe 1440 px: dentro la pagina stanno in mezza
-   * colonna e i numeri non si leggono. Un clic le apre a piena finestra.
-   * Senza <dialog> non succede niente e l'immagine resta quella inline.
+   * Le schermate sono larghe 1440 px: dentro la colonna i numeri non si
+   * leggono. Un clic le apre a piena finestra. Senza <dialog> non succede
+   * niente e l'immagine resta quella inline.
    * -------------------------------------------------------------------- */
 
   var schermate = Array.prototype.slice.call(
@@ -166,7 +138,7 @@
     schermate.forEach(function (immagine) {
       immagine.setAttribute('role', 'button')
       immagine.setAttribute('tabindex', '0')
-      immagine.title = 'Clic per ingrandire'
+      immagine.title = 'Tocca per ingrandire'
 
       function apri() {
         grande.src = immagine.currentSrc || immagine.src
