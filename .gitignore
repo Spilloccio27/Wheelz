@@ -1,0 +1,11 @@
+node_modules
+dist
+coverage
+.claude
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+.vite
+public/fonts/*.woff2

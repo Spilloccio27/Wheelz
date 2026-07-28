@@ -1,0 +1,633 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Inter — servito dal progetto, licenza SIL Open Font License 1.1.
+ * I file .woff2 stanno in public/fonts/ e si scaricano una volta sola
+ * con `npm run fonts`. Nessuna richiesta a Google Fonts né ad altre
+ * origini esterne: la CSP di produzione ammette solo font-src 'self'.
+ * Se i file non ci sono, si ricade sul font di sistema senza rotture.
+ * ------------------------------------------------------------------ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Inter-Variable.woff2') format('woff2');
+}
+
+/* ==================================================================== *
+ * PALETTE — nero, bianco, grigi.
+ *
+ * Niente tinte: la gerarchia si costruisce con il contrasto, il peso del
+ * carattere e la profondità delle superfici. L'accento non è un colore ma
+ * l'inversione — bianco su nero nel tema scuro, nero su bianco nel chiaro.
+ *
+ * Il colore torna solo dove porta informazione che il grigio non porta:
+ * il segno di un importo, uno stato che richiede un intervento, le serie di
+ * un grafico. Tre tinte semantiche e una scala categorica per i grafici,
+ * nient'altro. Il resto dell'interfaccia — pannelli, bottoni, tabelle,
+ * navigazione — resta rigorosamente in bianco, nero e grigi.
+ * ==================================================================== */
+
+@theme {
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Roboto Mono', Menlo, monospace;
+
+  /* L'accento cambia con il tema: sono alias di variabili di runtime. */
+  --color-accent-300: var(--accent-soft);
+  --color-accent-400: var(--accent-soft);
+  --color-accent-500: var(--accent);
+  --color-accent-600: var(--accent-strong);
+  --color-accent-700: var(--accent-strong);
+
+  --color-pos: var(--segno-pos);
+  --color-neg: var(--segno-neg);
+  --color-warn: var(--segno-warn);
+}
+
+/* Il taglio orizzontale non deve nascondere le ombre delle card. */
+@supports not (overflow: clip) {
+  html {
+    overflow-x: hidden;
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------- chiaro ------------------------------- */
+:root {
+  --sfondo: #ececed;
+  --sfondo-2: #e2e2e4;
+
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-solida: #ffffff;
+  --surface-2: rgba(255, 255, 255, 0.45);
+  --surface-3: rgba(9, 9, 11, 0.055);
+  --line: rgba(9, 9, 11, 0.1);
+  --line-forte: rgba(9, 9, 11, 0.18);
+
+  --ink: #101012;
+  --ink-2: #55555c;
+  --ink-3: #8b8b93;
+
+  --accent: #101012;
+  --accent-soft: #45454d;
+  --accent-strong: #000000;
+  --accent-ink: #ffffff;
+
+  /* Tinte semantiche: verificate a contrasto ≥ 4.5:1 sul fondo delle card. */
+  --segno-pos: #15803d;
+  --segno-neg: #c2201f;
+  --segno-warn: #a45a04;
+  --segno-pos-velo: rgba(21, 128, 61, 0.1);
+  --segno-neg-velo: rgba(194, 32, 31, 0.1);
+  --segno-warn-velo: rgba(164, 90, 4, 0.11);
+
+  /* Fondi pieni per le tendine native: vedi la nota più sotto. */
+  --tendina-fondo: #ffffff;
+  --tendina-attiva: #e6e6e9;
+
+  /* Vetro liquido: solo la barra in basso, solo su mobile. */
+  --liquido-fondo: rgba(255, 255, 255, 0.6);
+  --liquido-bordo: rgba(255, 255, 255, 0.75);
+  --liquido-luce: rgba(255, 255, 255, 0.9);
+  --liquido-ombra: 0 8px 32px -8px rgba(9, 9, 11, 0.22), 0 2px 8px -2px rgba(9, 9, 11, 0.12);
+  --liquido-lente: rgba(255, 255, 255, 0.85);
+  --liquido-lente-bordo: rgba(9, 9, 11, 0.08);
+
+  --vetro-sfoca: 20px;
+  --vetro-luce: rgba(255, 255, 255, 0.65);
+  --ombra: 0 1px 2px rgba(9, 9, 11, 0.05), 0 8px 24px -12px rgba(9, 9, 11, 0.18);
+  --ombra-alta: 0 24px 60px -18px rgba(9, 9, 11, 0.3);
+
+  color-scheme: light;
+}
+
+/* ------------------------------- scuro -------------------------------- */
+.dark {
+  --sfondo: #08080a;
+  --sfondo-2: #0d0d10;
+
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-solida: #131316;
+  --surface-2: rgba(255, 255, 255, 0.025);
+  --surface-3: rgba(255, 255, 255, 0.075);
+  --line: rgba(255, 255, 255, 0.09);
+  --line-forte: rgba(255, 255, 255, 0.18);
+
+  --ink: #f4f4f5;
+  --ink-2: #a1a1aa;
+  --ink-3: #6c6c76;
+
+  --accent: #fafafa;
+  --accent-soft: #d4d4d8;
+  --accent-strong: #ffffff;
+  --accent-ink: #09090b;
+
+  --segno-pos: #4ade80;
+  --segno-neg: #ff6b6b;
+  --segno-warn: #f0b055;
+  --segno-pos-velo: rgba(74, 222, 128, 0.13);
+  --segno-neg-velo: rgba(255, 107, 107, 0.14);
+  --segno-warn-velo: rgba(240, 176, 85, 0.14);
+
+  /* Corrisponde al campo composito (superficie su card su fondo scuro):
+     a occhio è identico, ma è opaco. */
+  --tendina-fondo: #17171b;
+  --tendina-attiva: #2c2c33;
+
+  --liquido-fondo: rgba(30, 30, 36, 0.55);
+  --liquido-bordo: rgba(255, 255, 255, 0.16);
+  --liquido-luce: rgba(255, 255, 255, 0.22);
+  --liquido-ombra: 0 10px 40px -8px rgba(0, 0, 0, 0.7), 0 2px 10px -2px rgba(0, 0, 0, 0.5);
+  --liquido-lente: rgba(255, 255, 255, 0.14);
+  --liquido-lente-bordo: rgba(255, 255, 255, 0.2);
+
+  --vetro-sfoca: 22px;
+  --vetro-luce: rgba(255, 255, 255, 0.06);
+  --ombra: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 28px -14px rgba(0, 0, 0, 0.8);
+  --ombra-alta: 0 28px 70px -20px rgba(0, 0, 0, 0.85);
+
+  color-scheme: dark;
+}
+
+/* ==================================================================== *
+ * Fondo
+ *
+ * Il vetro ha bisogno di qualcosa da sfocare: un fondo piatto lo rende
+ * indistinguibile da un rettangolo grigio. Due aloni fissi e una grana
+ * finissima bastano a dare profondità senza introdurre colore.
+ * ==================================================================== */
+
+/**
+ * Lo scorrimento sta sulla pagina, non su un contenitore interno.
+ *
+ * `height: 100%` su body insieme a `overflow-x: hidden` faceva diventare il
+ * body il contenitore di scorrimento: la pagina scendeva a fatica e la barra
+ * laterale, che è `sticky`, non aveva più un riferimento a cui agganciarsi e
+ * scorreva via col contenuto. Qui l'altezza è un minimo, non un vincolo, e il
+ * taglio orizzontale è `clip` — che non crea un contenitore di scorrimento,
+ * al contrario di `hidden`.
+ */
+html {
+  height: 100%;
+  overflow-x: clip;
+}
+
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--sfondo);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(120vh 90vh at 12% -10%, var(--vetro-luce), transparent 60%),
+    radial-gradient(100vh 80vh at 88% 8%, var(--vetro-luce), transparent 62%),
+    linear-gradient(180deg, var(--sfondo) 0%, var(--sfondo-2) 100%);
+}
+
+/* Grana: SVG inline, nessuna richiesta di rete. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==================================================================== *
+ * Vetro
+ *
+ * Dentro `@layer components`, non fuori: le classi scritte a mano hanno la
+ * stessa specificità delle utility di Tailwind, e chi arriva dopo nel file
+ * vince. Senza il layer, `.vetro-luce { position: relative }` batteva
+ * `sticky` e la barra laterale scorreva via con la pagina; `.vetro { border }`
+ * batteva `border-l-0` e le rimetteva il bordo che le avevo tolto.
+ * Il layer `components` viene prima di `utilities`, e le utility tornano a
+ * comandare come devono.
+ * ==================================================================== */
+
+@layer components {
+  .vetro {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(var(--vetro-sfoca)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--vetro-sfoca)) saturate(140%);
+    box-shadow: var(--ombra);
+  }
+
+  /* Filo di luce sul bordo superiore: è quello che fa leggere il pannello
+     come una lastra e non come un riquadro semitrasparente. */
+  .vetro-luce {
+    position: relative;
+  }
+  .vetro-luce::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, transparent, var(--line-forte), transparent);
+    pointer-events: none;
+  }
+
+  .vetro-forte {
+    background: var(--surface-solida);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    box-shadow: var(--ombra-alta);
+  }
+
+  /**
+   * Vetro liquido — solo la barra di navigazione in basso, solo su mobile.
+   *
+   * Non è il vetro delle card: è una lastra spessa che galleggia sopra il
+   * contenuto e lo rifrange. Tre strati sovrapposti fanno il lavoro:
+   *   1. il fondo semitrasparente con sfocatura forte e saturazione spinta —
+   *      è quello che raccoglie il colore di ciò che scorre sotto;
+   *   2. un filo di luce sul bordo superiore e uno interno in basso, che
+   *      danno spessore al bordo invece di lasciarlo piatto;
+   *   3. un riflesso speculare in diagonale, appena percettibile, che si
+   *      comporta come la luce su una superficie curva.
+   */
+  .vetro-liquido {
+    position: relative;
+    background: var(--liquido-fondo);
+    border: 1px solid var(--liquido-bordo);
+    backdrop-filter: blur(30px) saturate(190%);
+    -webkit-backdrop-filter: blur(30px) saturate(190%);
+    box-shadow:
+      var(--liquido-ombra),
+      inset 0 1px 0 var(--liquido-luce),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.06);
+    isolation: isolate;
+  }
+
+  /* Il riflesso: gradiente diagonale che si spegne a metà lastra. */
+  .vetro-liquido::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      145deg,
+      var(--liquido-luce) 0%,
+      transparent 38%,
+      transparent 62%,
+      color-mix(in oklab, var(--liquido-luce) 45%, transparent) 100%
+    );
+    opacity: 0.55;
+  }
+
+  /* La lente che segue la voce attiva: più chiara del fondo, con un bordo
+     appena visibile, come una goccia posata sopra il vetro. */
+  .lente {
+    background: var(--liquido-lente);
+    border: 1px solid var(--liquido-lente-bordo);
+    box-shadow:
+      0 2px 10px -2px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 var(--liquido-luce);
+  }
+
+  /* Dove il backdrop-filter non c'è (Firefox datato, alcune WebView), i
+     pannelli restano leggibili perché la superficie diventa opaca. */
+  @supports not (backdrop-filter: blur(1px)) {
+    .vetro,
+    .vetro-forte,
+    .vetro-liquido {
+      background: var(--surface-solida);
+    }
+    .vetro-liquido::before {
+      display: none;
+    }
+  }
+}
+
+/* ==================================================================== *
+ * Movimento
+ * ==================================================================== */
+
+@keyframes mf-comparsa {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mf-sfuma {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mf-scala {
+  from {
+    opacity: 0;
+    transform: scale(0.965) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mf-foglio {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes mf-scorri {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mf-luccichio {
+  from {
+    background-position: -180% 0;
+  }
+  to {
+    background-position: 180% 0;
+  }
+}
+
+@keyframes mf-pulsa {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* Curva unica per tutto: leggermente elastica in uscita, mai rimbalzante. */
+:root {
+  --molla: cubic-bezier(0.22, 1, 0.36, 1);
+  --molla-veloce: cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+/**
+ * `backwards` e non `both`.
+ *
+ * Con `forwards` l'ultimo fotogramma resta applicato: anche a `transform:
+ * none` l'elemento conserva un valore animato, e un elemento con un
+ * `transform` diventa il contenitore di riferimento per i figli `position:
+ * fixed`. Con `backwards` l'animazione riporta l'elemento al suo stato
+ * naturale — che è già lo stato finale — e non lascia niente dietro di sé.
+ */
+.mf-in {
+  animation: mf-comparsa 0.34s var(--molla) backwards;
+}
+.mf-sfuma {
+  animation: mf-sfuma 0.24s ease-out backwards;
+}
+.mf-scala {
+  animation: mf-scala 0.3s var(--molla) backwards;
+}
+.mf-foglio {
+  animation: mf-foglio 0.34s var(--molla) backwards;
+}
+.mf-scorri {
+  animation: mf-scorri 0.3s var(--molla) backwards;
+}
+
+/* La modale è un foglio che sale dal basso sul telefono e un pannello che
+   si apre al centro sul desktop: lo stesso componente, due gesti diversi. */
+.mf-modale {
+  animation: mf-foglio 0.34s var(--molla) backwards;
+}
+@media (min-width: 640px) {
+  .mf-modale {
+    animation: mf-scala 0.3s var(--molla) backwards;
+  }
+}
+
+/* Ingresso scalato: le righe di una tabella non arrivano tutte insieme.
+   Il ritardo è un contatore, non venti classi diverse. */
+.mf-scaglione > * {
+  animation: mf-comparsa 0.36s var(--molla) backwards;
+  animation-delay: calc(var(--i, 0) * 26ms);
+}
+
+.mf-luccichio {
+  background-image: linear-gradient(90deg, transparent 0%, var(--surface-3) 50%, transparent 100%);
+  background-size: 180% 100%;
+  animation: mf-luccichio 1.5s ease-in-out infinite;
+}
+
+.mf-pulsa {
+  animation: mf-pulsa 1.6s ease-in-out infinite;
+}
+
+/* Feedback tattile: il tocco deve rispondere prima del dato. */
+.premi {
+  transition:
+    transform 0.14s var(--molla-veloce),
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease;
+}
+.premi:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .premi:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+/* ==================================================================== *
+ * Dettagli
+ * ==================================================================== */
+
+/* Il numero deve stare incolonnato: cifre a larghezza fissa ovunque. */
+.tabnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--sfondo);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-forte) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--line-forte);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input[type='date'],
+input[type='time'] {
+  color-scheme: inherit;
+}
+
+/**
+ * Tendine native.
+ *
+ * La lista che si apre da un `<select>` non è disegnata dalla pagina ma dal
+ * sistema, che le dà i colori dell'elemento. I nostri campi hanno lo sfondo
+ * semitrasparente — bello nel modulo, disastroso qui: il sistema lo compone
+ * su bianco, e il testo chiaro del tema scuro diventa grigio su bianco,
+ * illeggibile.
+ *
+ * Le voci hanno quindi colori pieni e dichiarati. Serve anche `optgroup`,
+ * altrimenti le intestazioni dei gruppi restano bianche.
+ */
+select option,
+select optgroup {
+  background-color: var(--tendina-fondo);
+  color: var(--ink);
+}
+
+/* Anche l'evidenziazione della voce scelta va in tinta piena: `--surface-3`
+   è semitrasparente e faceva ricadere il sistema sul bianco. */
+select option:checked {
+  background-color: var(--tendina-attiva);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+select option:disabled {
+  color: var(--ink-3);
+}
+
+/**
+ * Spazi legati alla barra di navigazione, che su mobile galleggia staccata
+ * dal bordo, e alla tacca del telefono.
+ *
+ * Il ritorno alla misura da scrivania è scritto qui dentro con una media
+ * query, non affidato a una utility `lg:`: queste classi stanno fuori dai
+ * layer di Tailwind e a parità di specificità vincerebbero loro.
+ */
+.pad-basso {
+  padding-bottom: calc(6.25rem + env(safe-area-inset-bottom, 0px));
+}
+
+.sotto-barra {
+  bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+.sopra-barra {
+  bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 1024px) {
+  .pad-basso {
+    padding-bottom: 2rem;
+  }
+  .sopra-barra {
+    bottom: 1rem;
+  }
+}
+
+/* La tacca si aggiunge al margine che c'era già: senza il `calc` il piede
+   di una modale perdeva il suo padding su ogni telefono senza notch. */
+.safe-basso {
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Liste che scorrono in orizzontale senza mostrare la barra: i filtri a
+   pillola su mobile devono sembrare un nastro, non un riquadro con lo
+   scorrimento. */
+.nastro {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
+  /* Il margine che lo scorrimento deve rispettare. Senza, portare una voce
+     in vista la incolla al bordo dello schermo: il browser allinea l'elemento
+     alla soglia del riquadro e il padding del contenitore non lo riguarda.
+     Con questo, la prima pillola resta allineata al titolo della pagina. */
+  scroll-padding-inline: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .nastro {
+    scroll-padding-inline: 0;
+  }
+}
+.nastro::-webkit-scrollbar {
+  display: none;
+}
+.nastro > * {
+  scroll-snap-align: start;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body::before,
+  body::after {
+    display: none;
+  }
+  .vetro,
+  .vetro-forte {
+    background: #fff;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+}

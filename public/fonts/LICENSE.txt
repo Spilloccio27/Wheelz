@@ -1,0 +1,24 @@
+Inter — Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+
+Questo font è distribuito con licenza SIL Open Font License, Version 1.1.
+Il testo completo della licenza è disponibile in:
+
+    https://openfontlicense.org
+    https://github.com/rsms/inter/blob/master/LICENSE.txt
+
+In sintesi, la OFL 1.1 consente di usare, studiare, modificare e
+ridistribuire il font, anche in progetti commerciali, a queste condizioni:
+
+  - i file del font non possono essere venduti da soli;
+  - le versioni modificate non possono usare il nome riservato "Inter";
+  - font originali e derivati restano sotto la stessa licenza;
+  - questo avviso di copyright e di licenza va conservato.
+
+Il font viene servito dal progetto (public/fonts/) e non da un CDN esterno:
+la Content-Security-Policy di produzione ammette solo `font-src 'self'`, e
+nessuna richiesta lascia il dominio dell'applicazione quando si apre una
+pagina del gestionale.
+
+I file .woff2 non sono nel controllo di versione: si scaricano con
+
+    npm run fonts
