@@ -559,7 +559,7 @@ function DashboardMeccanico() {
         }
       >
         {altre.length ? (
-          <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3 mf-scaglione">
+          <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3 wz-scaglione">
             {altre.map((j, i) => (
               <div key={j.id} style={{ '--i': Math.min(i, 12) }}>
                 <CardScheda

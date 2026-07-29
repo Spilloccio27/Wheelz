@@ -327,7 +327,7 @@ body::after {
  * Movimento
  * ==================================================================== */
 
-@keyframes mf-comparsa {
+@keyframes wz-comparsa {
   from {
     opacity: 0;
     transform: translateY(8px);
@@ -338,7 +338,7 @@ body::after {
   }
 }
 
-@keyframes mf-sfuma {
+@keyframes wz-sfuma {
   from {
     opacity: 0;
   }
@@ -347,7 +347,7 @@ body::after {
   }
 }
 
-@keyframes mf-scala {
+@keyframes wz-scala {
   from {
     opacity: 0;
     transform: scale(0.965) translateY(10px);
@@ -358,7 +358,7 @@ body::after {
   }
 }
 
-@keyframes mf-foglio {
+@keyframes wz-foglio {
   from {
     transform: translateY(100%);
   }
@@ -367,7 +367,7 @@ body::after {
   }
 }
 
-@keyframes mf-scorri {
+@keyframes wz-scorri {
   from {
     opacity: 0;
     transform: translateX(12px);
@@ -378,7 +378,7 @@ body::after {
   }
 }
 
-@keyframes mf-luccichio {
+@keyframes wz-luccichio {
   from {
     background-position: -180% 0;
   }
@@ -387,7 +387,7 @@ body::after {
   }
 }
 
-@keyframes mf-pulsa {
+@keyframes wz-pulsa {
   0%,
   100% {
     opacity: 1;
@@ -412,48 +412,48 @@ body::after {
  * fixed`. Con `backwards` l'animazione riporta l'elemento al suo stato
  * naturale — che è già lo stato finale — e non lascia niente dietro di sé.
  */
-.mf-in {
-  animation: mf-comparsa 0.34s var(--molla) backwards;
+.wz-in {
+  animation: wz-comparsa 0.34s var(--molla) backwards;
 }
-.mf-sfuma {
-  animation: mf-sfuma 0.24s ease-out backwards;
+.wz-sfuma {
+  animation: wz-sfuma 0.24s ease-out backwards;
 }
-.mf-scala {
-  animation: mf-scala 0.3s var(--molla) backwards;
+.wz-scala {
+  animation: wz-scala 0.3s var(--molla) backwards;
 }
-.mf-foglio {
-  animation: mf-foglio 0.34s var(--molla) backwards;
+.wz-foglio {
+  animation: wz-foglio 0.34s var(--molla) backwards;
 }
-.mf-scorri {
-  animation: mf-scorri 0.3s var(--molla) backwards;
+.wz-scorri {
+  animation: wz-scorri 0.3s var(--molla) backwards;
 }
 
 /* La modale è un foglio che sale dal basso sul telefono e un pannello che
    si apre al centro sul desktop: lo stesso componente, due gesti diversi. */
-.mf-modale {
-  animation: mf-foglio 0.34s var(--molla) backwards;
+.wz-modale {
+  animation: wz-foglio 0.34s var(--molla) backwards;
 }
 @media (min-width: 640px) {
-  .mf-modale {
-    animation: mf-scala 0.3s var(--molla) backwards;
+  .wz-modale {
+    animation: wz-scala 0.3s var(--molla) backwards;
   }
 }
 
 /* Ingresso scalato: le righe di una tabella non arrivano tutte insieme.
    Il ritardo è un contatore, non venti classi diverse. */
-.mf-scaglione > * {
-  animation: mf-comparsa 0.36s var(--molla) backwards;
+.wz-scaglione > * {
+  animation: wz-comparsa 0.36s var(--molla) backwards;
   animation-delay: calc(var(--i, 0) * 26ms);
 }
 
-.mf-luccichio {
+.wz-luccichio {
   background-image: linear-gradient(90deg, transparent 0%, var(--surface-3) 50%, transparent 100%);
   background-size: 180% 100%;
-  animation: mf-luccichio 1.5s ease-in-out infinite;
+  animation: wz-luccichio 1.5s ease-in-out infinite;
 }
 
-.mf-pulsa {
-  animation: mf-pulsa 1.6s ease-in-out infinite;
+.wz-pulsa {
+  animation: wz-pulsa 1.6s ease-in-out infinite;
 }
 
 /* Feedback tattile: il tocco deve rispondere prima del dato. */

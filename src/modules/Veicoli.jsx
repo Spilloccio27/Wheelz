@@ -387,7 +387,7 @@ function GrigliaVeicoli({ veicoli, onApri, inScadenza, prossimaScadenza, finestr
   if (!veicoli.length) return <Card><Vuoto messaggio={vuoto} /></Card>
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 mf-scaglione">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 wz-scaglione">
       {veicoli.slice(0, 60).map((v, i) => {
         const cliente = db.customers.find((c) => c.id === v.customerId)
         const p = prossimaScadenza(v)
@@ -719,7 +719,7 @@ function DettaglioVeicolo({ veicolo, onChiudi, onModifica, onElimina, vaiA }) {
       }
     >
       <div className="space-y-6">
-        <div className="relative rounded-2xl overflow-hidden border border-[var(--line)] aspect-[16/9] sm:aspect-[21/9] bg-[var(--surface-2)] mf-scala">
+        <div className="relative rounded-2xl overflow-hidden border border-[var(--line)] aspect-[16/9] sm:aspect-[21/9] bg-[var(--surface-2)] wz-scala">
           <FotoVeicolo veicolo={veicolo} alt={`${veicolo.marca} ${veicolo.modello} — ${veicolo.targa}`} />
           <input
             ref={inputFoto}

@@ -250,7 +250,7 @@ export function Card({ className, padding = true, animata = true, children, ...p
         // con `min-w-[640px]` allargava la card a 658 px su uno schermo da
         // 375. La tabella scorre già per conto suo, la card no.
         'vetro vetro-luce rounded-2xl min-w-0',
-        animata && 'mf-in',
+        animata && 'wz-in',
         padding && 'p-4 sm:p-5',
         className,
       )}
@@ -323,7 +323,7 @@ export function KPI({
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={onClick ? (e) => (e.key === 'Enter' || e.key === ' ') && onClick() : undefined}
       className={cx(
-        'vetro vetro-luce rounded-2xl p-4 flex flex-col gap-2 mf-in premi',
+        'vetro vetro-luce rounded-2xl p-4 flex flex-col gap-2 wz-in premi',
         onClick && 'cursor-pointer hover:border-[var(--line-forte)]',
       )}
     >
@@ -705,7 +705,7 @@ export function Ricerca({ valore, onChange, segnaposto = 'Cerca…', className, 
           onClick={() => onChange('')}
           aria-label="Azzera la ricerca"
           className={cx(
-            'absolute right-2.5 lg:right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-lg hover:bg-[var(--surface-3)] mf-sfuma',
+            'absolute right-2.5 lg:right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-lg hover:bg-[var(--surface-3)] wz-sfuma',
             TESTO_3,
           )}
         >
@@ -897,7 +897,7 @@ export function DataTable({
           </div>
         )}
 
-        <ul className="mf-scaglione divide-y divide-[var(--line)]">
+        <ul className="wz-scaglione divide-y divide-[var(--line)]">
           {visibili.slice(0, limiteMobile).map((r, i) => (
             <li key={chiave(r, i)} style={{ '--i': Math.min(i, 14) }}>
               <div
@@ -986,9 +986,9 @@ export function DataTable({
                     {c.label}
                     {ordine?.chiave === c.chiave &&
                       (ordine.direzione === 'asc' ? (
-                        <ArrowUp size={11} className="mf-sfuma" aria-hidden />
+                        <ArrowUp size={11} className="wz-sfuma" aria-hidden />
                       ) : (
-                        <ArrowDown size={11} className="mf-sfuma" aria-hidden />
+                        <ArrowDown size={11} className="wz-sfuma" aria-hidden />
                       ))}
                   </button>
                 )}
@@ -996,7 +996,7 @@ export function DataTable({
             ))}
           </tr>
         </thead>
-        <tbody className="mf-scaglione">
+        <tbody className="wz-scaglione">
           {visibili.map((r, i) => (
             <tr
               key={chiave(r, i)}
@@ -1066,7 +1066,7 @@ export function EsportaCsv({ nomeFile, colonne, righe, misura = 'sm', etichetta 
 
 export function Vuoto({ messaggio = 'Nessun dato.', descrizione, azione, icona: Icona }) {
   return (
-    <div className="text-center py-12 px-4 mf-in">
+    <div className="text-center py-12 px-4 wz-in">
       {Icona && (
         <span className="inline-grid place-items-center h-11 w-11 rounded-2xl bg-[var(--surface-3)] mb-3">
           <Icona size={20} className={TESTO_3} aria-hidden />
@@ -1083,12 +1083,12 @@ export function Vuoto({ messaggio = 'Nessun dato.', descrizione, azione, icona: 
 
 /** Rettangolo che luccica: dice "sta arrivando" meglio di uno spinner. */
 export function Scheletro({ className, radius = 'rounded-xl' }) {
-  return <div className={cx('mf-luccichio bg-[var(--surface-2)]', radius, className)} />
+  return <div className={cx('wz-luccichio bg-[var(--surface-2)]', radius, className)} />
 }
 
 export function Caricamento({ testo = 'Caricamento…' }) {
   return (
-    <div className="py-2 mf-sfuma" role="status" aria-label={testo}>
+    <div className="py-2 wz-sfuma" role="status" aria-label={testo}>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
         {[0, 1, 2, 3].map((i) => (
           <Scheletro key={i} className="h-24 rounded-2xl" />
@@ -1170,7 +1170,7 @@ export function Modal({ aperto, onChiudi, titolo, sottotitolo, larghezza = 'md',
     <Portale>
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-[6px] mf-sfuma"
+        className="absolute inset-0 bg-black/50 backdrop-blur-[6px] wz-sfuma"
         onClick={onChiudi}
         aria-hidden
       />
@@ -1179,7 +1179,7 @@ export function Modal({ aperto, onChiudi, titolo, sottotitolo, larghezza = 'md',
         aria-modal="true"
         aria-label={titolo}
         className={cx(
-          'relative w-full vetro-forte mf-modale',
+          'relative w-full vetro-forte wz-modale',
           // `dvh` e non `vh`: su mobile la barra del browser compare e sparisce
           // mentre si scorre, e con `vh` il foglio finisce sotto la barra.
           'rounded-t-3xl sm:rounded-2xl max-h-[92dvh] sm:max-h-[88vh] flex flex-col',
@@ -1279,12 +1279,12 @@ export function Foglio({ aperto, onChiudi, titolo, children }) {
   return (
     <Portale>
     <div className="fixed inset-0 z-50 flex items-end justify-center no-print">
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-[6px] mf-sfuma" onClick={onChiudi} aria-hidden />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-[6px] wz-sfuma" onClick={onChiudi} aria-hidden />
       <div
         role="dialog"
         aria-modal="true"
         aria-label={titolo}
-        className="relative w-full vetro-forte rounded-t-3xl mf-foglio max-h-[80vh] overflow-y-auto safe-basso"
+        className="relative w-full vetro-forte rounded-t-3xl wz-foglio max-h-[80vh] overflow-y-auto safe-basso"
       >
         <div className="pt-2.5 pb-1 flex justify-center sticky top-0">
           <span className="h-1 w-9 rounded-full bg-[var(--line-forte)]" />
@@ -1437,7 +1437,7 @@ export function Avviso({ tipo = 'info', titolo, children, azioni, className }) {
   return (
     <div
       className={cx(
-        'rounded-xl border p-3.5 flex gap-3 text-sm mf-in',
+        'rounded-xl border p-3.5 flex gap-3 text-sm wz-in',
         STILE_AVVISO[tipo] || STILE_AVVISO.info,
         className,
       )}
@@ -1456,7 +1456,7 @@ export function Avviso({ tipo = 'info', titolo, children, azioni, className }) {
 /** Intestazione di modulo: titolo, conteggio, ricerca e azione principale. */
 export function TestataModulo({ titolo, conteggio, descrizione, cerca, onCerca, azioni, segnaposto }) {
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center gap-3 mb-5 mf-in">
+    <div className="flex flex-col lg:flex-row lg:items-center gap-3 mb-5 wz-in">
       <div className="min-w-0 grow">
         <h1 className="text-xl font-semibold tracking-tight flex items-center gap-2.5">
           {titolo}
@@ -1506,7 +1506,7 @@ export function Toasts({ toasts, onChiudi }) {
           key={t.id}
           role="status"
           className={cx(
-            'mf-scorri rounded-xl px-4 py-3 text-sm flex items-start gap-2.5 sm:max-w-md vetro-forte',
+            'wz-scorri rounded-xl px-4 py-3 text-sm flex items-start gap-2.5 sm:max-w-md vetro-forte',
             t.tipo === 'errore' &&
               'border-[color-mix(in_oklab,var(--segno-neg)_45%,transparent)]',
             t.tipo === 'ok' && 'border-[color-mix(in_oklab,var(--segno-pos)_40%,transparent)]',
