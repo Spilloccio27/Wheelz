@@ -41,6 +41,22 @@ un meccanico, e capire cosa cambia.
 
 ---
 
+## I tre indirizzi
+
+| Indirizzo | Cos'è |
+|---|---|
+| [wheelz-site.netlify.app](https://wheelz-site.netlify.app) | il sito vetrina — sta in [`sito-vetrina/`](sito-vetrina/), statico, senza build |
+| [wheelz-demo.netlify.app](https://wheelz-demo.netlify.app) | l'applicazione senza chiavi: parte in modalità demo, i dati non si salvano |
+| [wheelz-manager.netlify.app](https://wheelz-manager.netlify.app) | l'applicazione con le chiavi in `.env`: l'officina vera, i dati restano |
+
+Demo e gestionale sono **la stessa build**: cambia solo se le variabili
+d'ambiente ci sono. Gli indirizzi stanno in
+[`src/utils/collegamenti.js`](src/utils/collegamenti.js) — la barra laterale in
+modalità demo rimanda al gestionale e al sito, e la schermata di accesso rimanda
+al sito.
+
+---
+
 ## Stack
 
 - **React 18**, solo componenti funzionali e hook
@@ -78,7 +94,8 @@ src/
 │   ├── chartColors.js      palette dei grafici, chiaro e scuro
 │   ├── image.js            ridimensionamento immagini lato client
 │   ├── calc.js             KPI, marginalità, produttività, break-even, alert
-│   └── calc.test.js        test delle formule
+│   ├── calc.test.js        test delle formule
+│   └── collegamenti.js     i tre indirizzi: sito, demo, gestionale
 ├── components/
 │   ├── ui.jsx              design system (Card, DataTable, Modal, KPI…)
 │   ├── RigheDocumento.jsx  editor righe condiviso da preventivi, schede, fatture

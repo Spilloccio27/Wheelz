@@ -91,6 +91,7 @@ sito-vetrina/
 │   ├── script.js         tema, foglio «Altro», comparsa, ingranditore
 │   └── favicon.svg
 ├── immagini/             le schermate, WebP a due risoluzioni
+├── robots.txt  sitemap.xml
 ├── netlify.toml          pubblicazione della sola cartella
 ├── _headers              stesse intestazioni, per gli host che leggono questo
 └── README.md
@@ -113,11 +114,10 @@ in `_headers` è di conseguenza molto stretta: `connect-src 'none'`.
 le superfici di vetro sono copiate da `src/index.css`. Il sito e il gestionale
 devono sembrare la stessa cosa, perché lo sono.
 
-**Navigazione a due posture.** Da scrivania, le voci stanno nella barra in
-alto. Sotto i 900 px la barra in alto tiene solo il marchio e il tema, e la
-navigazione scende in basso — quattro destinazioni più «Altro», che apre un
-foglio dal basso con le pagine restanti. È la stessa postura dell'applicazione,
-per la stessa ragione: il pollice arriva lì.
+**Menu classico da telefono.** Sotto i 900 px le voci finiscono dietro il
+pulsante a tre righe e scendono in un pannello sotto l'intestazione, con in
+fondo i due inviti — demo e gestionale. Si chiude toccando una voce, toccando
+fuori o con Esc.
 
 **Niente dettagli tecnici.** Il sito parla di officina, non di come è costruito
 il gestionale: nessun riferimento all'archivio dati, alle librerie o ai comandi
@@ -136,11 +136,31 @@ peggio.
 
 ---
 
+## I tre indirizzi
+
+Il sito è collegato agli altri due, e viceversa:
+
+| Indirizzo | Cos'è | Dove compare |
+|---|---|---|
+| `wheelz-site.netlify.app` | questo sito | canonico di ogni pagina, `sitemap.xml` |
+| `wheelz-demo.netlify.app` | l'officina di esempio | intestazione, apertura, pagina «Provalo», piè di pagina |
+| `wheelz-manager.netlify.app` | il gestionale vero | intestazione, apertura, pagina «Provalo», piè di pagina |
+
+Gli indirizzi sono scritti nelle pagine: cambiarne uno vuol dire una
+sostituzione su tutti gli `.html` (e su `sitemap.xml`, `robots.txt` e i
+canonici). Dall'altra parte, l'applicazione rimanda qui: vedi
+`src/utils/collegamenti.js` nel progetto.
+
+I collegamenti verso l'esterno aprono una nuova scheda, portano `rel="noopener"`
+e hanno una freccia ↗ accanto, così si sa dove si sta andando prima di partire.
+
+---
+
 ## Pubblicarlo
 
-**Netlify** — nuovo sito dallo stesso repository, *base directory*
-`sito-vetrina`, nessun comando di build, *publish directory* `sito-vetrina`.
-La `netlify.toml` qui dentro fa il resto.
+**Netlify** — è il caso di `wheelz-site`: nuovo sito dallo stesso repository,
+*base directory* `sito-vetrina`, nessun comando di build, *publish directory*
+`sito-vetrina`. La `netlify.toml` qui dentro fa il resto.
 
 **Vercel** — *root directory* `sito-vetrina`, framework preset «Other», nessun
 comando di build.

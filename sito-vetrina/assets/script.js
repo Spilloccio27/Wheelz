@@ -1,9 +1,9 @@
 /**
  * Interazioni del sito vetrina, uguali su tutte le pagine.
  *
- * L'interruttore del tema, il foglio «Altro» della barra in basso, la
- * comparsa degli elementi allo scorrimento e l'ingranditore delle
- * schermate. Nessuna dipendenza, nessuna richiesta di rete.
+ * L'interruttore del tema, il menu da telefono, la comparsa degli elementi
+ * allo scorrimento e l'ingranditore delle schermate. Nessuna dipendenza,
+ * nessuna richiesta di rete.
  */
 ;(function () {
   'use strict'
@@ -28,7 +28,7 @@
     aggiornaColoreBarra()
     try {
       localStorage.setItem(CHIAVE, scuro ? 'scuro' : 'chiaro')
-    } catch (e) {
+    } catch {
       /* niente archiviazione: il tema vale per questa visita. */
     }
   }
@@ -39,37 +39,35 @@
     bottone.addEventListener('click', cambiaTema)
   })
 
-  /* ------------------- foglio «Altro» da telefono ---------------------- */
+  /* ---------------------------- menu mobile ---------------------------- */
 
-  var foglio = document.getElementById('foglio')
-  var apriFoglio = document.getElementById('altro')
+  var bottoneMenu = document.getElementById('menu')
+  var nav = document.getElementById('nav')
 
-  function chiudiFoglio() {
-    if (!foglio) return
-    foglio.hidden = true
-    document.body.style.overflow = ''
-    if (apriFoglio) {
-      apriFoglio.setAttribute('aria-expanded', 'false')
-      apriFoglio.focus()
-    }
+  function chiudiMenu() {
+    if (!nav || !bottoneMenu) return
+    nav.classList.remove('aperto')
+    bottoneMenu.setAttribute('aria-expanded', 'false')
   }
 
-  if (foglio && apriFoglio) {
-    apriFoglio.addEventListener('click', function () {
-      foglio.hidden = false
-      document.body.style.overflow = 'hidden'
-      apriFoglio.setAttribute('aria-expanded', 'true')
-      var prima = foglio.querySelector('a, button')
-      if (prima) prima.focus()
+  if (bottoneMenu && nav) {
+    bottoneMenu.addEventListener('click', function (evento) {
+      evento.stopPropagation()
+      var aperto = nav.classList.toggle('aperto')
+      bottoneMenu.setAttribute('aria-expanded', String(aperto))
     })
 
-    foglio.addEventListener('click', function (evento) {
-      /* il velo e le voci chiudono; il resto del foglio no */
-      if (evento.target.closest('.foglio__velo, .foglio__voci a')) chiudiFoglio()
+    /* Un tocco su una voce, fuori dal pannello o su Esc: si chiude. */
+    nav.addEventListener('click', function (evento) {
+      if (evento.target.closest('a')) chiudiMenu()
+    })
+
+    document.addEventListener('click', function (evento) {
+      if (!nav.contains(evento.target)) chiudiMenu()
     })
 
     document.addEventListener('keydown', function (evento) {
-      if (evento.key === 'Escape' && !foglio.hidden) chiudiFoglio()
+      if (evento.key === 'Escape') chiudiMenu()
     })
   }
 
@@ -118,7 +116,7 @@
 
   /* ------------------------- ingranditore ------------------------------ *
    * Le schermate sono larghe 1440 px: dentro la colonna i numeri non si
-   * leggono. Un clic le apre a piena finestra. Senza <dialog> non succede
+   * leggono. Un tocco le apre a piena finestra. Senza <dialog> non succede
    * niente e l'immagine resta quella inline.
    * -------------------------------------------------------------------- */
 

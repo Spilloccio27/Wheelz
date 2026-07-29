@@ -16,7 +16,7 @@
   var salvato = null
   try {
     salvato = localStorage.getItem('mechflow-vetrina-tema')
-  } catch (e) {
+  } catch {
     /* archiviazione negata (navigazione privata, cookie bloccati): pazienza. */
   }
 

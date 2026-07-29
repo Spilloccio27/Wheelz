@@ -46,6 +46,7 @@ import {
 } from './components/ui.jsx'
 import Login from './components/Login.jsx'
 import { iniziali } from './utils/format.js'
+import { GESTIONALE, SITO } from './utils/collegamenti.js'
 
 const Dashboard = lazy(() => import('./modules/Dashboard.jsx'))
 const Clienti = lazy(() => import('./modules/Clienti.jsx'))
@@ -295,9 +296,27 @@ function Sidebar({ voci, attivo, onSceglie, tema, cambiaTema, settings, alertGra
         )}
 
         {demo && (
-          <p className="text-[11px] text-[var(--ink-3)] leading-snug">
-            Modalità demo: dati di esempio in memoria, nessun salvataggio.
-          </p>
+          <div className="text-[11px] text-[var(--ink-3)] leading-snug space-y-1">
+            <p>Modalità demo: dati di esempio in memoria, nessun salvataggio.</p>
+            <p className="flex flex-wrap gap-x-3 gap-y-1">
+              <a
+                href={GESTIONALE}
+                className="underline underline-offset-2 hover:text-[var(--ink-2)]"
+                target="_blank"
+                rel="noopener"
+              >
+                Entra nel gestionale
+              </a>
+              <a
+                href={SITO}
+                className="underline underline-offset-2 hover:text-[var(--ink-2)]"
+                target="_blank"
+                rel="noopener"
+              >
+                Cos’è MechFlow
+              </a>
+            </p>
+          </div>
         )}
       </div>
     </aside>
