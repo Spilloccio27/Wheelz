@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 06-multi-officina.sql
+-- Wheelz — 06-multi-officina.sql
 -- L'isolamento fra officine, reso strutturale.
 --
 -- Da eseguire dopo 05-sicurezza.sql.

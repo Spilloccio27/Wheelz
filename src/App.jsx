@@ -95,7 +95,7 @@ export default function App() {
     return (
       <div className="min-h-screen grid place-items-center px-6">
         <div className="w-full max-w-sm text-center">
-          <span className="inline-grid place-items-center h-14 w-14 rounded-2xl vetro mb-4 mf-pulsa">
+          <span className="inline-grid place-items-center h-14 w-14 rounded-2xl vetro mb-4 wz-pulsa">
             <Wrench size={24} aria-hidden />
           </span>
           <p className="text-sm text-[var(--ink-2)]">Apertura officina…</p>
@@ -107,7 +107,7 @@ export default function App() {
   if (errore) {
     return (
       <div className="min-h-screen grid place-items-center p-6">
-        <div className="max-w-md text-center vetro vetro-luce rounded-2xl p-8 mf-scala">
+        <div className="max-w-md text-center vetro vetro-luce rounded-2xl p-8 wz-scala">
           <AlertTriangle size={26} className="mx-auto mb-3" aria-hidden />
           <h1 className="text-lg font-semibold mb-2 tracking-tight">
             Non è stato possibile aprire l’officina
@@ -166,7 +166,7 @@ export default function App() {
               è il modo più economico per dare continuità alla navigazione.
               Comprende il ruolo perché filtri e viste predefinite dipendono da
               chi guarda: cambiando utente il modulo riparte pulito. */}
-          <div key={`${attivo.id}|${ruolo}`} className="mf-in">
+          <div key={`${attivo.id}|${ruolo}`} className="wz-in">
             <Suspense fallback={<Caricamento />}>
               <Componente />
             </Suspense>
@@ -219,7 +219,7 @@ function Sidebar({ voci, attivo, onSceglie, tema, cambiaTema, settings, alertGra
           <Wrench size={18} className="text-[var(--accent-ink)]" aria-hidden />
         </span>
         <div className="min-w-0">
-          <p className="font-semibold text-sm leading-tight tracking-tight">MechFlow</p>
+          <p className="font-semibold text-sm leading-tight tracking-tight">Wheelz</p>
           <p className="text-[11px] text-[var(--ink-3)] truncate">
             {settings.ragioneSociale || 'Officina'}
           </p>
@@ -313,7 +313,7 @@ function Sidebar({ voci, attivo, onSceglie, tema, cambiaTema, settings, alertGra
                 target="_blank"
                 rel="noopener"
               >
-                Cos’è MechFlow
+                Cos’è Wheelz
               </a>
             </p>
           </div>
@@ -496,7 +496,7 @@ function MenuAltro({ voci, attivo, onSceglie, tema, cambiaTema }) {
 
   return (
     <div className="space-y-1">
-      <div className="grid grid-cols-2 gap-1.5 mf-scaglione">
+      <div className="grid grid-cols-2 gap-1.5 wz-scaglione">
         {voci.map((v, i) => {
           const Icona = v.icona
           const selezionato = attivo === v.id

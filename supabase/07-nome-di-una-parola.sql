@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 07-nome-di-una-parola.sql
+-- Wheelz — 07-nome-di-una-parola.sql
 --
 -- Correzione a `fonda_officina()` e `riscatta_invito()`.
 --

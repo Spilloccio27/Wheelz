@@ -21,10 +21,10 @@ export const supabase = configurato
         persistSession: true,
         autoRefreshToken: true,
         detectSessionInUrl: true,
-        storageKey: 'mechflow.auth',
+        storageKey: 'wheelz.auth',
       },
       db: { schema: 'public' },
-      global: { headers: { 'x-application-name': 'mechflow' } },
+      global: { headers: { 'x-application-name': 'wheelz' } },
     })
   : null
 

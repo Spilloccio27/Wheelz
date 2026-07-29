@@ -377,7 +377,7 @@ function GrigliaSchede({ schede, ruolo, onApri, vuoto }) {
   }
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 mf-scaglione">
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3 wz-scaglione">
       {schede.slice(0, 48).map((j, i) => (
         <div key={j.id} style={{ '--i': Math.min(i, 14) }}>
           <CardScheda

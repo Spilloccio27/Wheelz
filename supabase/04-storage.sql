@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 04-storage.sql
+-- Wheelz — 04-storage.sql
 -- Due bucket e le loro regole d'accesso.
 --
 -- Da eseguire dopo 03-ordini.sql.

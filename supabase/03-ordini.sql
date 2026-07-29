@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 03-ordini.sql
+-- Wheelz — 03-ordini.sql
 -- Ordini a fornitore, storico prezzi d'acquisto e le due funzioni che tengono
 -- in piedi il magazzino: `registra_movimento` e `ricevi_ordine`.
 --

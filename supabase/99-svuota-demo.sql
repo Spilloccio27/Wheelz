@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 99-svuota-demo.sql
+-- Wheelz — 99-svuota-demo.sql
 -- Script di servizio: svuota i dati operativi di UNA officina.
 --
 -- Serve dopo aver caricato i dati dimostrativi con `npm run seed`, quando si

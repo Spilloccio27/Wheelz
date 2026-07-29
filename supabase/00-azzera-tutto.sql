@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — azzeramento completo, per ripartire da zero.
+-- Wheelz — azzeramento completo, per ripartire da zero.
 --
 -- Cancella tutto quello che creano gli script da 01 a 06: tabelle, viste,
 -- funzioni, trigger e policy. I bucket di storage restano (04 li aggiorna da

@@ -78,7 +78,7 @@ export default function Login() {
             <Wrench size={22} className="text-white" aria-hidden />
           </span>
           <div>
-            <p className="font-semibold text-lg leading-tight">MechFlow</p>
+            <p className="font-semibold text-lg leading-tight">Wheelz</p>
             <p className="text-xs text-[var(--ink-3)]">Gestionale per autofficine</p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function Login() {
                       id={id}
                       value={campi.codiceInvito}
                       onChange={set('codiceInvito')}
-                      placeholder="MF-XXXX-XXXX"
+                      placeholder="WZ-XXXX-XXXX"
                       autoComplete="off"
                       className="font-mono uppercase"
                     />
@@ -215,7 +215,7 @@ export default function Login() {
               target="_blank"
               rel="noopener"
             >
-              Cos’è MechFlow
+              Cos’è Wheelz
             </a>
           </p>
         </div>

@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 05-sicurezza.sql
+-- Wheelz — 05-sicurezza.sql
 -- Row Level Security: i permessi vivono qui, non nell'interfaccia.
 --
 -- Da eseguire dopo 04-storage.sql.
