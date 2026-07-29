@@ -1,12 +1,16 @@
 # Wheelz
 
-Gestionale web per autofficine: clienti e parco veicoli, preventivi, schede di
+**Il gestionale dell'officina.** Clienti e parco veicoli, preventivi, schede di
 lavoro, ricambi a magazzino, fornitori, fatturazione e incassi, spese, personale
 con ore e presenze, report economici.
 
 Copre meccanica, elettrauto, gommista e carrozzeria leggera. È pensato per
 un'officina che sta in un capannone, non per una rete di concessionarie: un
 titolare, qualche meccanico, tre ponti, un tablet appeso al muro.
+
+Si apre senza configurare niente, con tre mesi di storico finto ma coerente. Con
+le chiavi di Supabase in `.env` diventa un gestionale vero, che parte vuoto e
+tiene i dati.
 
 ---
 
@@ -297,14 +301,31 @@ Nell'SQL Editor di Supabase, uno alla volta:
 | 4 | `supabase/04-storage.sql` | bucket `loghi` e `documenti` con le loro policy |
 | 5 | `supabase/05-sicurezza.sql` | RLS attiva ovunque, policy per ruolo |
 | 6 | `supabase/06-multi-officina.sql` | default su `officina_id`, trigger anti riferimenti incrociati |
-| 7 | `supabase/07-nome-di-una-parola.sql` | correzione a `fonda_officina()` e `riscatta_invito()` — serve solo a chi ha installato prima di questa versione |
+| 7 | `supabase/07-nome-di-una-parola.sql` | il cognome mancante non è più `NULL`: chi si registrava con una parola sola non riusciva a entrare |
+| 8 | `supabase/08-cancellazione-utenti.sql` | la guardia sull'ultimo titolare non blocca più la cancellazione dell'utente dalla console |
+
+Le prime sei creano il database. La settima e l'ottava sono correzioni:
+servono a chi ha installato prima, e su un progetto nuovo si limitano a
+registrarsi.
 
 Ogni script è **idempotente per rifiuto**: se è già stato applicato si ferma con
-un errore invece di rifare il lavoro. Il registro è la tabella `_migrazioni`.
+un errore invece di rifare il lavoro. Il registro è la tabella `_migrazioni`, e
+ogni script controlla che il precedente ci sia — quindi non è possibile
+eseguirli fuori ordine.
 
-`supabase/99-svuota-demo.sql` è di servizio: svuota i dati operativi di
-un'officina lasciando utenti e impostazioni. Va modificato incollandoci l'id
-dell'officina, ed è l'unico pensato per girare più volte.
+⚠️ L'editor SQL di Supabase **non annulla tutto in caso di errore**: quello che
+è passato resta. Se uno script si ferma a metà, non lanciare il successivo —
+si finisce con uno schema incoerente. C'è `supabase/00-azzera-tutto.sql` per
+tornare a zero e ricominciare.
+
+Due script di servizio, fuori dalla sequenza:
+
+- **`supabase/00-azzera-tutto.sql`** — cancella tutto quello che creano gli
+  altri: tabelle, viste, funzioni, trigger e policy. Da usare per ripartire
+  puliti dopo un'installazione andata storta.
+- **`supabase/99-svuota-demo.sql`** — svuota i dati operativi di un'officina
+  lasciando utenti e impostazioni, per esempio dopo `npm run seed`. Va
+  modificato incollandoci l'id dell'officina.
 
 ### 3. Configurazione del progetto
 
@@ -325,9 +346,22 @@ dell'officina, ed è l'unico pensato per girare più volte.
 ### 4. Primo accesso
 
 Chi si registra **senza codice invito** fonda una nuova officina e ne diventa
-titolare. Chi si registra **con un codice invito** entra nell'officina che l'ha
-emesso, con il ruolo scritto nell'invito. Gli inviti si creano da
-Impostazioni → Utenti e ruoli.
+titolare. Chi si registra **con un codice invito** — nella forma `WZ-XXXX-XXXX`
+— entra nell'officina che l'ha emesso, con il ruolo scritto nell'invito. Gli
+inviti si creano da Impostazioni → Utenti e ruoli.
+
+Con la conferma via email attiva la registrazione si spezza in due momenti: il
+modulo adesso, il primo accesso più tardi — magari da un altro dispositivo, dove
+quel modulo non esiste più. È al secondo che il profilo viene creato. Nome,
+ragione sociale e codice invito viaggiano quindi nei **metadati dell'utente**,
+cioè su Supabase e non nel browser, e vengono recuperati da lì.
+
+Non è un dettaglio: senza, chi conferma l'email si ritrova l'indirizzo di posta
+al posto del nome, e — molto peggio — chi era stato invitato fonda una seconda
+officina tutta sua invece di entrare in quella che lo aspettava.
+
+Il proprio nome si corregge comunque da **Impostazioni → Utenti e ruoli → Il tuo
+profilo**, che aggiorna anche la scheda del personale collegata.
 
 ---
 
@@ -572,9 +606,15 @@ stampato in bianco e nero.
 
 **Veicoli con la foto.** Il parco si apre in griglia: immagine grande, sotto
 targa, chilometri, modello e proprietario; un tocco apre la scheda completa.
-Chi preferisce l'elenco ha l'interruttore in alto a destra. La foto vera si
-scatta o si carica dalla scheda del veicolo — ridotta nel browser prima di
-partire, salvata nel bucket privato, con il solo percorso nel database.
+Chi preferisce l'elenco ha l'interruttore in alto a destra.
+
+La foto si scatta o si carica **già dal modulo di creazione**, in cima, prima
+dei dati anagrafici: in accettazione si guarda la macchina e poi si scrive, non
+il contrario. Dal telefono il pulsante apre direttamente la fotocamera. Il
+percorso nel bucket porta data e numero casuale, quindi la foto si carica prima
+ancora che il veicolo esista, senza aspettare il salvataggio. Viene ridotta nel
+browser prima di partire, finisce nel bucket privato, e nel database va solo il
+percorso. La stessa cosa si può fare più tardi dalla scheda del veicolo.
 
 Finché la foto non c'è, la card mostra **un'illustrazione generata**
 ([`utils/vehicleImage.js`](src/utils/vehicleImage.js)): sagoma di profilo —

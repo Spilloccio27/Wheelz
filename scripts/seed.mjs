@@ -232,7 +232,7 @@ dall'applicazione. Il primo che si registra senza codice invito fonda una
 nuova officina — se vuoi collegarti a questa, crea un invito con:
 
   insert into public.invites (officina_id, email, ruolo, codice)
-  values ('${officinaId}', 'tua@email.it', 'titolare', 'MF-SEED-0001');
+  values ('${officinaId}', 'tua@email.it', 'titolare', 'WZ-SEED-0001');
 `)
 }
 
