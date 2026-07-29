@@ -4,9 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  // `sito-vetrina/` è un sito statico a sé: non entra nella build
-  // dell'applicazione e ha le sue regole (JavaScript da browser, senza moduli).
-  { ignores: ['dist', 'node_modules', 'coverage', 'sito-vetrina'] },
+  { ignores: ['dist', 'node_modules', 'coverage'] },
   {
     files: ['**/*.{js,jsx,mjs}'],
     languageOptions: {

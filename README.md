@@ -45,7 +45,7 @@ un meccanico, e capire cosa cambia.
 
 | Indirizzo | Cos'è |
 |---|---|
-| [wheelz-site.netlify.app](https://wheelz-site.netlify.app) | il sito vetrina — sta in [`sito-vetrina/`](sito-vetrina/), statico, senza build |
+| [wheelz-site.netlify.app](https://wheelz-site.netlify.app) | il sito vetrina — sta nel repository [`wheelz-website`](https://github.com/Spilloccio27/wheelz-website), statico, senza build |
 | [wheelz-demo.netlify.app](https://wheelz-demo.netlify.app) | l'applicazione senza chiavi: parte in modalità demo, i dati non si salvano |
 | [wheelz-manager.netlify.app](https://wheelz-manager.netlify.app) | l'applicazione con le chiavi in `.env`: l'officina vera, i dati restano |
 
