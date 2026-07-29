@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 02-auth.sql
+-- Wheelz — 02-auth.sql
 -- Officine, profili, inviti e le funzioni che governano l'accesso.
 --
 -- Da eseguire dopo 01-schema.sql.

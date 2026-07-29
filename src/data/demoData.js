@@ -1404,7 +1404,7 @@ export function generaDemo({ seed = 20250127, ancora = oggiIso(), giorni = 92 } 
       id: 'inv_0001',
       email: 'nuovo.meccanico@rossiefigli.it',
       ruolo: 'meccanico',
-      codice: 'MF-DEMO-2K7Q',
+      codice: 'WZ-DEMO-2K7Q',
       usato: false,
       createdAt: addGiorni(fine, -3),
       scadenza: addGiorni(fine, 11),

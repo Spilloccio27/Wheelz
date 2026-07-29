@@ -24,8 +24,8 @@ import { meseDi, oggiIso } from '../utils/format.js'
 
 const AppContext = createContext(null)
 
-const CHIAVE_TEMA = 'mechflow.tema'
-const CHIAVE_UTENTE_DEMO = 'mechflow.utenteDemo'
+const CHIAVE_TEMA = 'wheelz.tema'
+const CHIAVE_UTENTE_DEMO = 'wheelz.utenteDemo'
 
 /* ------------------------------------------------------------------ *
  * Tema

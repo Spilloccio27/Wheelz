@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 08-cancellazione-utenti.sql
+-- Wheelz — 08-cancellazione-utenti.sql
 --
 -- Correzione al trigger `protegge_ultimo_titolare()`.
 --

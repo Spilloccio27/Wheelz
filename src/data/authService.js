@@ -286,7 +286,7 @@ function codiceInvito() {
   const alfabeto = 'ACDEFGHJKLMNPQRTUVWXY34679' // niente caratteri ambigui
   let s = ''
   for (let i = 0; i < 8; i++) s += alfabeto[Math.floor(Math.random() * alfabeto.length)]
-  return `MF-${s.slice(0, 4)}-${s.slice(4)}`
+  return `WZ-${s.slice(0, 4)}-${s.slice(4)}`
 }
 
 export async function creaInvito({ email, ruolo, giorniValidita = 14 }) {

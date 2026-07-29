@@ -1,4 +1,4 @@
-# MechFlow
+# Wheelz
 
 Gestionale web per autofficine: clienti e parco veicoli, preventivi, schede di
 lavoro, ricambi a magazzino, fornitori, fatturazione e incassi, spese, personale

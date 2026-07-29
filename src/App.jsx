@@ -218,7 +218,7 @@ function Sidebar({ voci, attivo, onSceglie, tema, cambiaTema, settings, alertGra
           <Wrench size={18} className="text-[var(--accent-ink)]" aria-hidden />
         </span>
         <div className="min-w-0">
-          <p className="font-semibold text-sm leading-tight tracking-tight">MechFlow</p>
+          <p className="font-semibold text-sm leading-tight tracking-tight">Wheelz</p>
           <p className="text-[11px] text-[var(--ink-3)] truncate">
             {settings.ragioneSociale || 'Officina'}
           </p>

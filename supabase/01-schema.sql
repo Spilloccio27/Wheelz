@@ -1,5 +1,5 @@
 -- ============================================================================
--- MechFlow — 01-schema.sql
+-- Wheelz — 01-schema.sql
 -- Tabelle di dominio dell'officina.
 --
 -- Da eseguire per primo, nell'SQL Editor di Supabase.
