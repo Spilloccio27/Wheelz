@@ -205,8 +205,8 @@ function DatiOfficina() {
             </div>
             {demo && (
               <p className="text-xs text-[var(--ink-3)] mt-3">
-                In demo il logo resta nella memoria del browser. Con Supabase finisce nel bucket
-                pubblico <code>loghi</code>; nel database viene salvato solo il percorso.
+                In demo il logo resta nel browser e sparisce chiudendo. Nell’officina vera viene
+                conservato insieme agli altri documenti e compare su preventivi e fatture.
               </p>
             )}
           </Card>
@@ -555,11 +555,10 @@ function Utenti() {
     <div className="space-y-4">
       <IlMioProfilo />
 
-      <Avviso tipo="info" titolo="I permessi vivono nel database">
-        Quello che vedi qui è solo l’interfaccia. Il controllo vero è nelle policy RLS di
-        PostgreSQL: valgono anche per una chiamata REST fatta a mano con il token in mano. Il ruolo
-        non è modificabile dall’utente — un trigger rifiuta ogni cambio che non arrivi dal titolare —
-        e l’ultimo titolare non può essere rimosso.
+      <Avviso tipo="info" titolo="I permessi non sono un’impostazione dello schermo">
+        Nascondere una voce di menu non ha mai fermato nessuno: qui i limiti valgono davvero, anche
+        per chi provasse ad aggirare questa schermata. Il ruolo lo assegna solo il titolare —
+        nessuno può alzarsi da solo i permessi — e l’ultimo titolare non può essere rimosso.
       </Avviso>
 
       <div className="grid lg:grid-cols-3 gap-3">
@@ -879,7 +878,7 @@ function Sistema() {
       <Card>
         <CardHeader titolo="Stato dell’applicazione" sottotitolo="Da dove arrivano i dati che stai guardando" />
         <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <Dato etichetta="Modalità" valore={demo ? 'Demo (memoria)' : 'Supabase'} />
+          <Dato etichetta="Modalità" valore={demo ? 'Demo (niente viene salvato)' : 'Officina attiva'} />
           <Dato etichetta="Backend" valore={backend} />
           <Dato etichetta="Officina" valore={settings.ragioneSociale} />
           <Dato etichetta="Numerazione fatture" valore={`${dataService.prossimoNumero('invoices').numero} (prossima)`} />
@@ -907,8 +906,8 @@ function Sistema() {
           )}
         </div>
         <p className="text-xs text-[var(--ink-3)] mt-3">
-          L’esportazione è un backup manuale, non un tracciato fiscale. Con Supabase configurato i
-          dati vivono nel database e questo file serve solo come copia di comodo.
+          L’esportazione è una copia di sicurezza a mano, non un tracciato fiscale. Nell’officina
+          vera i dati sono già conservati: questo file serve solo a portarseli via.
         </p>
       </Card>
 

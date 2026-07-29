@@ -1304,9 +1304,9 @@ function PannelloAllegati({ scheda: j }) {
 
       {demo && (
         <Avviso tipo="info">
-          In modalità demo gli allegati restano nella memoria del browser e spariscono ricaricando la
-          pagina. Con Supabase configurato finiscono nel bucket privato <code>documenti</code>, e nel
-          database viene salvato solo il percorso.
+          In modalità demo gli allegati restano nel browser e spariscono ricaricando la pagina.
+          Nell’officina vera sono conservati in un archivio riservato, che si apre solo a chi ha
+          accesso alla scheda.
         </Avviso>
       )}
 
