@@ -17,6 +17,7 @@ import authService from '../data/authService.js'
 import { lunghezzaMinimaPassword } from '../data/supabaseClient.js'
 import { useApp } from '../context/AppContext.jsx'
 import { Avviso, Button, Campo, Card, Input, cx } from './ui.jsx'
+import { SITO } from '../utils/collegamenti.js'
 
 const MODI = {
   accesso: { titolo: 'Accedi', azione: 'Accedi' },
@@ -207,6 +208,16 @@ export default function Login() {
           >
             Guarda prima la demo, senza registrarti
           </button>
+          <p className="mt-2 text-xs text-[var(--ink-3)]">
+            <a
+              href={SITO}
+              className="underline underline-offset-2 hover:text-[var(--ink-2)]"
+              target="_blank"
+              rel="noopener"
+            >
+              Cos’è Wheelz
+            </a>
+          </p>
         </div>
       </div>
     </div>
